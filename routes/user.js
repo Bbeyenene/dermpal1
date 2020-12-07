@@ -45,7 +45,7 @@ router.post(
     }
 );
 
-router.get('/', (req, res, next) => {
+router.get('/member', (req, res, next) => {
     console.log('===== user!!======');
     console.log(req.user);
     if (req.user) {
