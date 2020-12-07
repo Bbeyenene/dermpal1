@@ -13,8 +13,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const PORT = process.env.PORT || 8080;
-// Route requires
-const user = require('./routes/user');
+
 
 // MIDDLEWARE
 app.use(morgan('dev'));
@@ -51,8 +50,11 @@ mongoose
             app.use(passport.initialize());
             app.use(passport.session()); // calls the deserializeUser
 
-            // Routes
+            // Route requires
+            const user = require('./routes/user');
+            //const products = require('./routes/apiRoutes');
             app.use('/api/user', user);
+            //app.use('/api/products', products);
 
             if (process.env.NODE_ENV === 'production') {
                 app.use(express.static(path.join(__dirname, 'client/build')));
