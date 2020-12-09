@@ -6,6 +6,7 @@ import Signup from './components/sign-up';
 import LoginForm from './components/login-form';
 import Navbar from './components/navbar';
 import Home from './components/home';
+import SearchPage from "./components/Searchpage";
 
 class App extends Component {
   constructor() {
@@ -59,11 +60,10 @@ class App extends Component {
       <div className='App'>
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Route exact path='/' component={Home} />
-        <Route
-          path='/login'
-          render={() => <LoginForm updateUser={this.updateUser} />}
-        />
+        <Route path='/login' render={() => <LoginForm updateUser={this.updateUser} />}/>
         <Route path='/signup' render={() => <Signup />} />
+        <Route path='/search' render={() => <SearchPage/>} />
+
       </div>
     );
   }
