@@ -4,8 +4,6 @@ import axios from "axios";
  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const barcodeUrl = "https://api.barcodelookup.com/v2/products?barcode=";
 
-
-
 export default {
   fromInputBarcode: function (barcodeInput) {
      return axios.get(
