@@ -4,12 +4,9 @@ import axios from "axios";
  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const barcodeUrl = "https://api.barcodelookup.com/v2/products?barcode=";
 
-
-
 export default {
   fromInputBarcode: function (barcodeInput) {
-    console.log(process.env);
-    return axios.get(
+     return axios.get(
       proxyUrl + barcodeUrl + barcodeInput + "&formatted=y&key=" +
        REACT_APP_API_KEY
     );
