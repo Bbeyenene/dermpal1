@@ -1,5 +1,5 @@
 const express = require('express');
-const Products = require('../models/products')
+// const Products = require('../models/products')
 const router = express.Router();
 
 //Products model are going be used to for any activity we will perform 
@@ -30,6 +30,14 @@ router.get('/all', async (req, res) => {
         res.json(getProduct);
     } catch (erf) { res.send({ errHappend: err }) };
 })
+
+// router.get('/barcode/:number', async (req, res) => {
+//     // return axios.get(
+//     //     proxyUrl + barcodeUrl + barcodeInput + "&formatted=y&key=" + API_KEY
+//     //   );
+//     console.log(process.env.API_KEY);
+// })
+
 
 //get specific post ("/api/products/id=" + id)
 router.get('/id=/:productId', async (req, res) => {

@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Route } from 'react-router-dom';
-// components
-import Signup from './components/sign-up';
-import LoginForm from './components/login-form';
+
+// boilerplate components
 import Navbar from './components/navbar';
-import Home from './components/home';
+import Member from './components/member';
+
+// material ui components  
+import SignupForm from './components/SignupForm-MUI';
+import LoginForm from './components/LoginForm-MUI';
+import Home from './components/Home-MUI';
 import SearchPage from "./components/Searchpage";
+
 
 class App extends Component {
   constructor() {
@@ -34,7 +39,7 @@ class App extends Component {
       .get('/api/user/')
       .then((response) => {
         console.log('Get user response: ');
-        console.log(response.data);
+      
         if (response.data.user) {
           console.log(
             'Get User: There is a user saved in the server session: '
@@ -61,9 +66,9 @@ class App extends Component {
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Route exact path='/' component={Home} />
         <Route path='/login' render={() => <LoginForm updateUser={this.updateUser} />}/>
-        <Route path='/signup' render={() => <Signup />} />
+        <Route path='/signup' render={() => <SignupForm />} />
         <Route path='/search' render={() => <SearchPage/>} />
-
+        <Route path='/member' render={() => <Member/>} />
       </div>
     );
   }
