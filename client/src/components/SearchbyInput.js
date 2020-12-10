@@ -32,13 +32,13 @@ console.log(products);
     <div>
       <Grid
         container
-        spacing={6}
+        spacing={12}
         direction="column"
         alignItems="center"
         justify="center"
         style={{ minHeight: "50vh" }}
       >
-        <Grid item xs={6} sm={3} lg={6}>
+        <Grid item xs={10} sm={6} lg={6}>
           <TextField
             placeholder="barcode #"
             fullWidth

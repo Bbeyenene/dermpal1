@@ -6,6 +6,7 @@ import axios from 'axios';
 class Navbar extends Component {
     constructor() {
         super();
+        this.state = {  redirectTo: null };
         this.logout = this.logout.bind(this);
     }
 
@@ -21,7 +22,14 @@ class Navbar extends Component {
                         loggedIn: false,
                         username: null,
                     });
+                
+                   window.location.replace("/")
+                
                 }
+
+               
+
+
             })
             .catch((error) => {
                 console.log('Logout error');
@@ -40,12 +48,15 @@ class Navbar extends Component {
                         {loggedIn ? (
                             <section className='navbar-section'>
                                 <Link
-                                    to='#'
+                                    to='/'
                                     className='btn btn-link text-secondary'
                                     onClick={this.logout}
                                 >
                                     <span className='text-secondary abc'>logout</span>
                                 </Link>
+                                <Link to='/member' className='btn btn-link text-secondary'>
+                                        <span className='text-secondary'>member</span>
+                                    </Link>
                             </section>
                         ) : (
                                 <section className='navbar-section'>

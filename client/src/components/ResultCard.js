@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import useStyles from "./styles";
+import useStyles from "./ResultCard-styles";
 
 export default function ResultCard(props) {
   const classes = useStyles();
