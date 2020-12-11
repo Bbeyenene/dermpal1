@@ -69,7 +69,7 @@ class SignupForm extends React.Component {
                   className="login-background"
                 >
                   <Grid item>
-                    <Typography component="h1" variant="h5">
+                    <Typography  variant="h1">
                       Sign up
                     </Typography>
                   </Grid>
@@ -116,7 +116,7 @@ class SignupForm extends React.Component {
                     </form>
                   </Grid>
                   <Grid item>
-                    <Link href="#" variant="body2">
+                    <Link href="#" variant="h1" color="secondary">
                       Forgot Password?
                     </Link>
                   </Grid>

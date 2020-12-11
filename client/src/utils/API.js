@@ -7,7 +7,7 @@ const barcodeUrl = "https://api.barcodelookup.com/v2/products?barcode=";
 export default {
   fromInputBarcode: function (barcodeInput) {
      return axios.get(
-      proxyUrl + barcodeUrl + barcodeInput + "&formatted=y&key="
+      proxyUrl + barcodeUrl + barcodeInput + "&formatted=y&key=hrsh89sx6t7478jna9yf81jqmxbhke"
     );
   },
 };

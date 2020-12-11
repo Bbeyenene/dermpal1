@@ -4,29 +4,43 @@ import ResultCard from "./ResultCard";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+}));
 
 function SearchbyInput() {
-const [products, setProduct] = useState([]);
-const [productSearch, setProductSearch] = useState("");
+  const classes = useStyles();
+
+  const [products, setProduct] = useState([]);
+  const [productSearch, setProductSearch] = useState("");
+  const [open, setOpen] = React.useState(false);
 
   const handleInputChange = (event) => {
     const { value } = event.target;
-    
+
     setProductSearch(value);
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    setOpen(true);
     API.fromInputBarcode(productSearch)
-      .then((res) =>
-        setProduct(res.data.products)
-      )
+      .then((res) => setProduct(res.data.products))
       .catch((err) => console.log(err));
   };
 
-
-console.log(products);
-
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div>
@@ -64,21 +78,35 @@ console.log(products);
         </Grid>
 
         {products.length ? (
-          <Grid item xs={6}>
-              {products.map(product => (
-              <ResultCard
-              
-                id={product.id}
-                title={product.product_name}
-                subheader={product.manufacturer}
-                image={product.images[0]}
-                description={product.description}
-                
-              />
+          <Grid item xs={12}>
+            {products.map((product) => (
+              <Modal
+                open={open}
+                // onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+                className={classes.modal}
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={open}>
+                  <ResultCard
+                    id={product.id}
+                    title={product.product_name}
+                    subheader={product.manufacturer}
+                    image={product.images[0]}
+                    description={product.description}
+                    closeModal={handleClose}
+                    
+                  />
+                </Fade>
+              </Modal>
             ))}
           </Grid>
         ) : (
-          <h3>No Results to Display</h3>
+          <h3></h3>
         )}
       </Grid>
     </div>
