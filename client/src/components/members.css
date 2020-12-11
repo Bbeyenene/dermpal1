@@ -1,0 +1,10 @@
+.card {
+    margin: 20px;
+    padding:20px
+}
+.myBtn {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}

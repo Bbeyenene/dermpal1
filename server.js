@@ -10,6 +10,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const user = require("./routes/user");
+const products = require("./routes/apiRoutes");
 const PORT = process.env.PORT || 8080;
 
 // MIDDLEWARE
@@ -55,6 +56,7 @@ mongoose
 
       // CONNECTION TO API ROUTES
       app.use(user);
+      app.use(products)
 
       if (process.env.NODE_ENV === "production") {
         app.use(express.static(path.join(__dirname, "client/build")));

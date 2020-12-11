@@ -1,13 +1,29 @@
 import axios from "axios";
 
-// const REACT_APP_API_KEY = process.env.API_KEY;
- const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-const barcodeUrl = "https://api.barcodelookup.com/v2/products?barcode=";
+// const REACT_APP_API_KEY = process.env.API_KEY;06827465
+const proxyUrl = "https://cors-anywhere.herokuapp.com/https://api.barcodelookup.com/v2/products?barcode=";
 
 export default {
-  fromInputBarcode: function (barcodeInput) {
-     return axios.get(
-      proxyUrl + barcodeUrl + barcodeInput + "&formatted=y&key="
+  fromInputBarcode: barcodeInput => {
+    return axios.get(
+      proxyUrl + barcodeInput + "&formatted=y&key=hrsh89sx6t7478jna9yf81jqmxbhke"
     );
   },
+  saveProduct: productData => {
+    return axios.post('/api/products/post', productData).then(result => result.data);
+  },
+  retrievProduct: () => {
+    return axios.post('/api/products/all').then(result => result.data);
+  },
+  getOneProduct: id => {
+    return axios.get(`/api/products/id=${id}`);
+  },
+  deleteProduct: id => {
+    return axios.delete(`/api/products/del/id=${id}`);
+  },
+
+  saveProduct: id => {
+    return axios.patch(`/api/products/update/id=${id}`);
+  },
 };
+
