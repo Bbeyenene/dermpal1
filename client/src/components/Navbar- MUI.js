@@ -13,8 +13,6 @@ import { withRouter } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 // import useStyles from "./Navbar-MUI.css"
 
-
-
 const Navbar = (props) => {
   const { history } = props;
   const classes = useStyles();

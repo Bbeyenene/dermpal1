@@ -8,6 +8,10 @@ import SignupForm from './components/SignupForm-MUI';
 import LoginForm from './components/LoginForm-MUI';
 import Home from './components/Home-MUI';
 import SearchPage from "./components/Searchpage";
+import { ThemeProvider } from "@material-ui/core";
+import theme from "./theme";
+import "./App.css";
+import Footer from "./components/Footer"
 import Profile from "./components/Profile"
 
 
@@ -62,12 +66,15 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        <ThemeProvider theme={theme}>
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Route exact path='/' component={Home} />
         <Route path='/login' render={() => <LoginForm updateUser={this.updateUser} />} />
         <Route path='/signup' render={() => <SignupForm />} />
         <Route path='/search' render={() => <SearchPage />} />
         <Route path='/profile' render={() => <Profile />} />
+        <Footer/>
+        </ThemeProvider>
       </div>
     );
   }
