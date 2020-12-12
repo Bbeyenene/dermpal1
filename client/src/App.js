@@ -12,7 +12,7 @@ import { ThemeProvider } from "@material-ui/core";
 import theme from "./theme";
 import "./App.css";
 // import Footer from "./components/Footer"
-import Profile from "./components/Profile"
+// import Profile from "./components/Profile"
 
 
 
@@ -72,7 +72,7 @@ class App extends Component {
         <Route path='/login' render={() => <LoginForm updateUser={this.updateUser} />} />
         <Route path='/signup' render={() => <SignupForm />} />
         <Route path='/search' render={() => <SearchPage />} />
-        <Route path='/profile' render={() => <Profile />} />
+        {/* <Route path='/profile' render={() => <Profile />} /> */}
         {/* <Footer/> */}
         </ThemeProvider>
       </div>

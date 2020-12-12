@@ -1,36 +1,75 @@
-import React, { Component } from "react";
-import API from "../utils/API";
+import React from "react";
+
 import Member from "./member";
 import axios from "axios";
+// import { Component } from "react";
 
-//main profile page
-class Profile extends Component {
-  //   state = {
-  //     savedProducts: [],
-  //   };
-
-  
+export default class Profile extends React.Component {
+  state = {
+    products: [],
+  };
 
   componentDidMount() {
-    axios
-      .get("/api/products/all")
-      .then(function (response) {
-        console.log(response.data[0].title);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    axios.get(`/api/products/all`).then((res) => {
+      const products = res.data;
+      this.setState({ products });
+    });
   }
-
   render() {
     return (
-      <div className="container">
-        <h2>Saved Products</h2>
-
-        {/* <Member products={this.state.savedProducts} /> */}
+      <div>
+        {this.state.products.map((item) => (
+          <Member
+            title={item.title}
+            description={item.description}
+            image={item.image}
+            category={item.category}
+            //   products={this.state.savedProducts}
+          />
+        ))}
       </div>
     );
   }
 }
 
-export default Profile;
+// axios
+// .get("/api/products/all")
+// .then(function (response) {
+//   console.log(response.data);
+// })
+// .catch(function (error) {
+//   console.log(error);
+// });
+
+//main profile page
+// export default function Profile() {
+//   // state = {
+//   //   savedProducts: [],
+//   // };
+
+//   axios.get("/api/products/all")
+//     .then(function (response) {
+//       console.log(response.data);
+//     })
+//     .catch(function (error) {
+//       console.log(error);
+//     });
+
+//   return (
+//     <div>
+//       {response.map((item) => {
+//         return (
+//           <Member
+//             title={item.data[0].title}
+//             description={item.data[0].description}
+//             image={item.data[0].image}
+//             category={item.data[0].category}
+//             //   products={this.state.savedProducts}
+//           />
+//         );
+//       })}
+//     </div>
+//   );
+
+//
+// }
