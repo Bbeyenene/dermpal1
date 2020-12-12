@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Results from "./member";
 
+//main profile page
 class Profile extends Component {
     state = {
         savedProducts: [],
