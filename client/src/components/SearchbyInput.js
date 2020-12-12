@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import ResultCard from "./ResultCard";
 import Button from "@material-ui/core/Button";
@@ -11,16 +11,12 @@ function SearchbyInput() {
 
   useEffect(() => {
     if (products.length) {
-
       recommendProduct();
-
     }
-
   }, [products]);
 
   const handleInputChange = (event) => {
     const { value } = event.target;
-
     setProductSearch(value);
   };
 
@@ -32,6 +28,7 @@ function SearchbyInput() {
       )
       .catch((err) => console.log(err));
   };
+
   function recommendProduct() {
     const drySkinCriteria = ["hydrating", "hydration", "dry skin", "moisture", "moisturization", "intense moisture", "moisturizing"];
     const oilSkinCriteria = ["oily skin", "control oiliness", "oiliness", "acne", "oily", "oily t-zone"];
@@ -40,30 +37,30 @@ function SearchbyInput() {
     console.log(products[0].description.split(" "), "hello");
 
     const arrayofWords = products[0].description.split(" ");
-    
+
     let drycounter = 0;
-    let oilcounter =0;
-    let allskincounter =0;
-    for (let i =0; i<arrayofWords.length; i++){
-    
+    let oilcounter = 0;
+    let allskincounter = 0;
+    for (let i = 0; i < arrayofWords.length; i++) {
+
       var word = arrayofWords[i];
-      if (drySkinCriteria.includes(word)){
+      if (drySkinCriteria.includes(word)) {
         drycounter++
-      }else if(oilSkinCriteria.includes(word)){
+      } else if (oilSkinCriteria.includes(word)) {
         oilcounter++
-      }else if(allSkinCriteria.includes(word)){
+      } else if (allSkinCriteria.includes(word)) {
         allskincounter++
       }
-    
+
     }
-   console.log("oily" , oilcounter);
-   console.log("dry", drycounter);
-   console.log("all skin types", allskincounter)
+    console.log("oily", oilcounter);
+    console.log("dry", drycounter);
+    console.log("all skin types", allskincounter)
 
 
   }
 
- 
+
   // console.log(products);
 
 

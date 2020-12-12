@@ -10,7 +10,8 @@ router.post('/api/products/post', async (req, res) => {
     const postProduct = new Products({
         title: req.body.title,
         description: req.body.description,
-        image: req.body.image
+        image: req.body.image,
+        review: { type: String, unique: false, required: false },
     });
     console.log(postProduct)
     try {

@@ -35,18 +35,18 @@ class Loginmock extends React.Component {
       })
       .then((response) => {
         console.log("login response: ");
-        console.log(response);
+        console.log(JSON.parse(response.config.data).username);
         if (response.status === 200) {
           // update App.js state
           this.props.updateUser({
             loggedIn: true,
-            username: response.data.username,
+            username: JSON.parse(response.config.data).username,
           });
           // update the state to redirect to home
           // remember to redirect to search page
 
           this.setState({
-            redirectTo: "/member",
+            redirectTo: "/profile",
           });
         }
       })

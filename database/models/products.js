@@ -6,7 +6,8 @@ const userSchema = new Schema({
     title: { type: String, unique: false, required: true },
     catagory: { type: String, unique: false, required: true },
     description: { type: String, unique: false, required: true },
-    image: { type: String, unique: false, required: true }
+    image: { type: String, unique: false, required: true },
+    review: { type: String, unique: false, required: false },
 })
 
 const Products = mongoose.model('product', userSchema)
