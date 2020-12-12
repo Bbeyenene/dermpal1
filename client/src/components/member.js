@@ -8,14 +8,14 @@ class Member extends Component {
         savedProducts: [],
     }
 
-    componentDidMount() {
-        API.retrievProduct()
-            .then(savedProducts => {
-                this.setState({ savedProducts: savedProducts })
-                console.log('you got your saved products')
-            })
-            .catch(err => console.error(err));
-    }
+    // componentDidMount() {
+    //     API.retrievProduct()
+    //         .then(savedProducts => {
+    //             this.setState({ savedProducts: savedProducts })
+    //             console.log('you got your saved products')
+    //         })
+    //         .catch(err => console.error(err));
+    // }
 
     handleDelete = product => {
 

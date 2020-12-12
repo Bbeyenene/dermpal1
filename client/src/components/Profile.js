@@ -1,27 +1,36 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Results from "./member";
+import Member from "./member";
+import axios from "axios";
 
 //main profile page
 class Profile extends Component {
-    state = {
-        savedProducts: [],
-    }
+  //   state = {
+  //     savedProducts: [],
+  //   };
 
-    componentDidMount() {
-        API.retrievProduct()
-            .then(savedProducts => this.setState({ savedProducts: savedProducts }))
-            .catch(err => console.error(err));
-    }
+  
 
-    render() {
-        return (
-            <div className="container">
-                <h2>Saved Products</h2>
-                <Results products={this.state.savedProducts} />
-            </div>
-        )
-    }
+  componentDidMount() {
+    axios
+      .get("/api/products/all")
+      .then(function (response) {
+        console.log(response.data[0].title);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <h2>Saved Products</h2>
+
+        {/* <Member products={this.state.savedProducts} /> */}
+      </div>
+    );
+  }
 }
 
 export default Profile;
