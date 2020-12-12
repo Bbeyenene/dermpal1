@@ -4,25 +4,19 @@ import ResultCard from "./ResultCard";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-}));
 
 function SearchbyInput() {
-  const classes = useStyles();
-
   const [products, setProduct] = useState([]);
   const [productSearch, setProductSearch] = useState("");
-  const [open, setOpen] = React.useState(false);
+
+  // useEffect(() => {
+  //   if (products.length) {
+
+  //     recommendProduct();
+
+  //   }
+
+  // }, [products]);
 
   const handleInputChange = (event) => {
     const { value } = event.target;
@@ -32,15 +26,46 @@ function SearchbyInput() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    setOpen(true);
     API.fromInputBarcode(productSearch)
-      .then((res) => setProduct(res.data.products))
+      .then((res) =>
+        setProduct(res.data.products)
+      )
       .catch((err) => console.log(err));
   };
+  function recommendProduct() {
+    const drySkinCriteria = ["hydrating", "hydration", "dry skin", "moisture", "moisturization", "intense moisture", "moisturizing"];
+    const oilSkinCriteria = ["oily skin", "control oiliness", "oiliness", "acne", "oily", "oily t-zone"];
+    const allSkinCriteria = ["all skin types", "all skin", "combination", "normal"];
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+    console.log(products[0].description.split(" "), "hello");
+
+    const arrayofWords = products[0].description.split(" ");
+    
+    let drycounter = 0;
+    let oilcounter =0;
+    let allskincounter =0;
+    for (let i =0; i<arrayofWords.length; i++){
+    
+      var word = arrayofWords[i];
+      if (drySkinCriteria.includes(word)){
+        drycounter++
+      }else if(oilSkinCriteria.includes(word)){
+        oilcounter++
+      }else if(allSkinCriteria.includes(word)){
+        allskincounter++
+      }
+    
+    }
+   console.log("oily" , oilcounter);
+   console.log("dry", drycounter);
+   console.log("all skin types", allskincounter)
+
+
+  }
+
+ 
+  // console.log(products);
+
 
   return (
     <div>
@@ -78,36 +103,22 @@ function SearchbyInput() {
         </Grid>
 
         {products.length ? (
-          <Grid item xs={12}>
-            {products.map((product) => (
-              <Modal
-                open={open}
-                // onClose={handleClose}
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-                className={classes.modal}
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                  timeout: 500,
-                }}
-              >
-                <Fade in={open}>
-                  <ResultCard
-                    id={product.id}
-                    title={product.product_name}
-                    subheader={product.manufacturer}
-                    image={product.images[0]}
-                    description={product.description}
-                    closeModal={handleClose}
-                    
-                  />
-                </Fade>
-              </Modal>
+          <Grid item xs={6}>
+            {products.map(product => (
+              <ResultCard
+
+                id={product.id}
+                title={product.product_name}
+                subheader={product.manufacturer}
+                image={product.images[0]}
+                description={product.description}
+
+              />
             ))}
           </Grid>
         ) : (
-          <h3></h3>
-        )}
+            <h3>No Results to Display</h3>
+          )}
       </Grid>
     </div>
   );

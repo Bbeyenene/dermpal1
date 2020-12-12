@@ -8,18 +8,15 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
-import ClearRoundedIcon from "@material-ui/icons/ClearRounded";
+import ClearRoundedIcon from '@material-ui/icons/ClearRounded';
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
 // import useStyles from "./ResultCard-styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    borderRadius: 25,
-    maxHeight: 900
   },
   media: {
     height: 0,
@@ -36,15 +33,14 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
 
-  actionButtons: {
-    justifyContent: "center",
-  },
 
-  icon: {
-    width: 40,
-    height: 40,
-  },
 }));
+
+
+
+
+
+
 
 export default function ResultCard(props) {
   const classes = useStyles();
@@ -54,11 +50,32 @@ export default function ResultCard(props) {
     setExpanded(!expanded);
   };
 
-  return (
-    <Card className={classes.root} key={props.id}>
-      <CardHeader title={props.title} subheader={props.subheader} />
+const onRemove = () => {
 
-      <CardMedia className={classes.media} image={props.image} />
+
+
+}
+
+
+
+
+  return (
+    <Card className={classes.root} key={props.id} >
+      <CardHeader
+        // avatar={
+        //   <Avatar aria-label="recipe" className={classes.avatar}>
+        //     R
+        //   </Avatar>
+        // }
+        title={props.title}
+        subheader={props.subheader}
+      />
+
+      <CardMedia
+        className={classes.media}
+        image={props.image}
+        title={"Image name"}
+      />
 
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
@@ -66,16 +83,14 @@ export default function ResultCard(props) {
         </Typography>
       </CardContent>
 
-      <CardActions className={classes.actionButtons} disableSpacing>
-        <IconButton aria-label="delete" onClick={props.closeModal}>
-          <ClearRoundedIcon className={classes.icon} />
-        </IconButton>
-
+      <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon className={classes.icon} />
+          <FavoriteIcon />
         </IconButton>
 
-        {/* 
+        <IconButton aria-label="delete" onRemove={() => onRemove(props.id)} >
+          <ClearRoundedIcon />
+        </IconButton>
 
         <IconButton
           className={clsx(classes.expand, {
@@ -87,17 +102,14 @@ export default function ResultCard(props) {
         >
           <ExpandMoreIcon />
         </IconButton>
-      
-       */}
       </CardActions>
-
-      {/* <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Write your review</Typography>
 
           <Typography paragraph>Blah blah blah</Typography>
         </CardContent>
-      </Collapse> */}
+      </Collapse>
     </Card>
   );
 }
