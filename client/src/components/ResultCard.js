@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -12,35 +11,8 @@ import ClearRoundedIcon from '@material-ui/icons/ClearRounded';
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-// import useStyles from "./ResultCard-styles";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: "56.25%", // 16:9
-  },
-  expand: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: "rotate(180deg)",
-  },
-
-
-}));
-
-
-
-
-
-
+import useStyles from "./ResultCard-styles";
+import API from '../utils/API'
 
 export default function ResultCard(props) {
   const classes = useStyles();
@@ -50,23 +22,27 @@ export default function ResultCard(props) {
     setExpanded(!expanded);
   };
 
-const onRemove = () => {
+  const onRemove = () => {
 
+  }
 
+  const saveToDB = {
+    title: props.title,
+    description: props.description,
+    image: props.image,
+  }
+  console.log(saveToDB)
 
-}
-
-
-
+  //API.retrievProduct()
+  const saveItem = () => {
+    API.postProduct(saveToDB)
+      .then(saved => console.log(saved.data))
+      .catch(err => console.log(`data not posted: ${err}`))
+  }
 
   return (
     <Card className={classes.root} key={props.id} >
       <CardHeader
-        // avatar={
-        //   <Avatar aria-label="recipe" className={classes.avatar}>
-        //     R
-        //   </Avatar>
-        // }
         title={props.title}
         subheader={props.subheader}
       />
@@ -88,6 +64,10 @@ const onRemove = () => {
           <FavoriteIcon />
         </IconButton>
 
+        <IconButton aria-label="post" onClick={() => saveItem()} >
+          <ClearRoundedIcon />
+        </IconButton>
+
         <IconButton aria-label="delete" onRemove={() => onRemove(props.id)} >
           <ClearRoundedIcon />
         </IconButton>
@@ -107,7 +87,7 @@ const onRemove = () => {
         <CardContent>
           <Typography paragraph>Write your review</Typography>
 
-          <Typography paragraph>Blah blah blah</Typography>
+          <Typography paragraph>Stores</Typography>
         </CardContent>
       </Collapse>
     </Card>
