@@ -28,10 +28,13 @@ export default function ResultCard(props) {
 
   const saveToDB = {
     title: props.title,
+    category: props.category,
     description: props.description,
     image: props.image,
-  }
-  console.log(saveToDB)
+    // review: props.review
+}
+
+console.log(saveToDB);
 
   //API.retrievProduct()
   const saveItem = () => {

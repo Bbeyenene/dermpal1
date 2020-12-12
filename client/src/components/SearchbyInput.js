@@ -26,6 +26,7 @@ function SearchbyInput() {
     API.fromInputBarcode(productSearch)
       .then((res) =>
         setProduct(res.data.products)
+        (console.log(res.data.products))
       )
       .catch((err) => console.log(err));
   };
@@ -102,21 +103,20 @@ function SearchbyInput() {
 
         {products.length ? (
           <Grid item xs={6}>
-            {products.map(product => (
+            {products.map((product) => (
               <ResultCard
-
                 id={product.id}
                 title={product.product_name}
                 subheader={product.manufacturer}
                 image={product.images[0]}
                 description={product.description}
-
+                category={product.category}
               />
             ))}
           </Grid>
         ) : (
-            <h3>No Results to Display</h3>
-          )}
+          <h3>No Results to Display</h3>
+        )}
       </Grid>
     </div>
   );

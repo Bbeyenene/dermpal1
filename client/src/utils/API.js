@@ -10,10 +10,12 @@ export default {
     );
   },
   postProduct: productData => {
-    return axios.post('/api/products/post', productData).then(result => result.data);
+    return axios.post('/api/products/post', productData)
+    // .then(result => result.data);
   },
-  retrievProduct: () => {
-    return axios.post('/api/products/all').then(result => result.data);
+  retrieveProduct: () => {
+    return axios.post('/api/products/all')
+    // .then(result => result.data);
   },
   getOneProduct: id => {
     return axios.get(`/api/products/id=${id}`);

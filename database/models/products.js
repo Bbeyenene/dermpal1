@@ -2,13 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 mongoose.promise = Promise;
 
-const userSchema = new Schema({
+const productSchema = new Schema({
     title: { type: String, unique: false, required: true },
-    catagory: { type: String, unique: false, required: true },
-    description: { type: String, unique: false, required: true },
-    image: { type: String, unique: false, required: true },
-    review: { type: String, unique: false, required: false },
-})
+    category: { type: String, unique: false, required: false },
+    description: { type: String, unique: false, required: false },
+    image: { type: String, unique: false, required: false },
+    // review: { type: String, unique: false, required: false },
+    
+}
 
-const Products = mongoose.model('product', userSchema)
+
+);
+
+const Products = mongoose.model('product', productSchema)
 module.exports = Products;
