@@ -1,4 +1,4 @@
-  
+
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import ResultCard from "./ResultCard";
@@ -26,7 +26,7 @@ function SearchbyInput() {
     API.fromInputBarcode(productSearch)
       .then((res) =>
         setProduct(res.data.products)
-        (console.log(res.data.products))
+          (console.log(res.data.products))
       )
       .catch((err) => console.log(err));
   };
@@ -34,9 +34,9 @@ function SearchbyInput() {
   function recommendProduct() {
     const drySkinCriteria = ["hydrating", "hydration", "dry skin", "moisture", "moisturization", "intense moisture", "moisturizing"];
     const oilSkinCriteria = ["oily skin", "control oiliness", "oiliness", "acne", "oily", "oily t-zone"];
-    const allSkinCriteria = ["all skin types", "all skin", "combination", "normal"];
+    const allSkinCriteria = ["all skin types", "all skin", "combination", "normal", "Anti-Blemish"];
 
-    console.log(products[0].description.split(" "), "hello");
+    // console.log(products[0].description.split(" "), "hello");
 
     const arrayofWords = products[0].description.split(" ");
 
@@ -54,18 +54,25 @@ function SearchbyInput() {
         allskincounter++
       }
 
-    }
-    console.log("oily", oilcounter);
-    console.log("dry", drycounter);
-    console.log("all skin types", allskincounter)
+      let drySkin = "Dry Skin";
+      let oilySkin = "Oily Skin";
+      let allSkin = "All Skin Types";
+      let types = [];
 
+      if (drycounter > 0) {
+        types.push(drySkin);
+      }
+      if (oilcounter > 0) {
+        types.push(oilySkin);
+      }
+      if (allskincounter > 0) {
+        types.push(allSkin);
+      }
+      console.log(types);
+
+    }
 
   }
-
-
-  // console.log(products);
-
-
   return (
     <div>
       <Grid
@@ -114,9 +121,14 @@ function SearchbyInput() {
               />
             ))}
           </Grid>
+
+
         ) : (
-          <h3>No Results to Display</h3>
-        )}
+            <h3>No Results to Display</h3>
+          )}
+      </Grid>
+      <Grid item xs={6}>
+       <h4>Recommended For</h4>
       </Grid>
     </div>
   );
