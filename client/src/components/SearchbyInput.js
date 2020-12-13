@@ -40,6 +40,8 @@ function SearchbyInput() {
 
     const arrayofWords = products[0].description.split(" ");
 
+    let types = [];
+    console.log(types);
     let drycounter = 0;
     let oilcounter = 0;
     let allskincounter = 0;
@@ -54,22 +56,19 @@ function SearchbyInput() {
         allskincounter++
       }
 
-      let drySkin = "Dry Skin";
-      let oilySkin = "Oily Skin";
-      let allSkin = "All Skin Types";
-      let types = [];
+    }
+    let drySkin = "Dry Skin";
+    let oilySkin = "Oily Skin";
+    let allSkin = "All Skin Types";
 
-      if (drycounter > 0) {
-        types.push(drySkin);
-      }
-      if (oilcounter > 0) {
-        types.push(oilySkin);
-      }
-      if (allskincounter > 0) {
-        types.push(allSkin);
-      }
-      console.log(types);
-
+    if (drycounter > 0) {
+      types.push(drySkin);
+    }
+    if (oilcounter > 0) {
+      types.push(oilySkin);
+    }
+    if (allskincounter > 0) {
+      types.push(allSkin);
     }
 
   }
@@ -128,7 +127,7 @@ function SearchbyInput() {
           )}
       </Grid>
       <Grid item xs={6}>
-       <h4>Recommended For</h4>
+        <h4>Recommended For</h4>
       </Grid>
     </div>
   );
