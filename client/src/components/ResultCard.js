@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from 'react-router-dom';
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -15,6 +16,7 @@ import useStyles from "./ResultCard-styles";
 import API from '../utils/API'
 
 export default function ResultCard(props) {
+  const history = useHistory()
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -22,9 +24,9 @@ export default function ResultCard(props) {
     setExpanded(!expanded);
   };
 
-  const onRemove = () => {
+  // const onRemove = () => {
 
-  }
+  // }
 
   const saveToDB = {
     title: props.title,
@@ -32,9 +34,9 @@ export default function ResultCard(props) {
     description: props.description,
     image: props.image,
     // review: props.review
-}
+  }
 
-console.log(saveToDB);
+  console.log(saveToDB);
 
   //API.retrievProduct()
   const saveItem = () => {
@@ -71,7 +73,9 @@ console.log(saveToDB);
           <ClearRoundedIcon />
         </IconButton>
 
-        <IconButton aria-label="delete" onRemove={() => onRemove(props.id)} >
+        <IconButton aria-label="delete" onClick={() => {
+          history.goBack()
+        }} >
           <ClearRoundedIcon />
         </IconButton>
 
