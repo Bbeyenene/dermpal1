@@ -14,7 +14,9 @@ export default {
     // .then(result => result.data);
   },
   retrieveProduct: () => {
-    return axios.post('/api/products/all')
+    return axios.get(`/api/products/all`, {
+      // "x-auth-token": this.props.userInfo.userId
+    })
     // .then(result => result.data);
   },
   getOneProduct: id => {

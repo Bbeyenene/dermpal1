@@ -1,5 +1,6 @@
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
+import API from "../utils/API";
 import './profile.css'
 
 export default class Profile extends React.Component {
@@ -7,25 +8,18 @@ export default class Profile extends React.Component {
     products: [],
   };
 
-
   componentDidMount() {
-    axios.get(`/api/products/all`, {
-      // "x-auth-token": this.props.userInfo.userId
-    }).then((res) => {
+    API.retrieveProduct().then((res) => {
       console.log(res.data);
       this.setState({ products: res.data });
     });
   }
 
-  handleRemove(id) {
-    axios.delete(`/api/products/id=${id}`)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
+  handleRemove(product) {
+    API.deleteProduct(product)
+      .then(delProduct => this.setState({ products: this.state.products.filter(product => product._id !== delProduct._id) }))
+      .catch(err => console.error(`this is --->${err}`));
 
-        const products = this.state.products.filter(product => product._id !== id);
-        this.setState({ products });
-      })
   }
 
   render() {
@@ -46,7 +40,6 @@ export default class Profile extends React.Component {
               </div>
               <div className="col-md-6">
                 <button className="btn btn-danger" onClick={() => this.handleRemove(product._id)}>X</button>
-                {/* <button className="btn btn-danger" onClick={(e) => this.deleteRow(post.id, e)}>Delete</button> */}
               </div>
             </div>
           </div>

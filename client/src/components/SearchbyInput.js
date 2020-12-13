@@ -2,12 +2,14 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import ResultCard from "./ResultCard";
+import GetStores from './GetStores';
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 
 function SearchbyInput() {
   const [products, setProduct] = useState([]);
+  const [stores, setStore] = useState([]);
   const [productSearch, setProductSearch] = useState("");
 
   useEffect(() => {
@@ -24,10 +26,13 @@ function SearchbyInput() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     API.fromInputBarcode(productSearch)
-      .then((res) =>
+      .then((res) => {
         setProduct(res.data.products)
-          (console.log(res.data.products))
-      )
+        console.log(res.data.products)
+        setStore(res.data.products[0].stores)
+        console.log(res.data.products[0].stores)
+
+      })
       .catch((err) => console.log(err));
   };
 
@@ -117,6 +122,16 @@ function SearchbyInput() {
                 image={product.images[0]}
                 description={product.description}
                 category={product.category}
+              />
+            ))}
+
+            {stores.map((store) => (
+              <GetStores
+                currency_code={store.currency_code}
+                currency_symbol={store.currency_symbol}
+                product_url={store.product_url}
+                store_name={store.store_name}
+                store_price={store.store_price}
               />
             ))}
           </Grid>
