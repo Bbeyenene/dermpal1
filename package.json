@@ -41,7 +41,8 @@
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "quagga": "^0.12.1"
+    "quagga": "^0.12.1",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
