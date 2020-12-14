@@ -69,9 +69,10 @@ class App extends Component {
       <div className='App'>
         <ThemeProvider theme={theme}>
           {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
-          <BootstrapNavbar/>
+          <BootstrapNavbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
           <Route exact path='/' component={Home} />
           <Route path='/signup' render={() => <SignupForm />} />
+          <Route path='/login' render={() => <LoginForm updateUser={this.updateUser} />} />
           <Route path='/search' render={() => <SearchPage />} />
           <Route path='/profile' render={() => <Profile />} />
           {/* <Footer/> */}

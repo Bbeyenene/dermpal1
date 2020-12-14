@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   
 
   hero: {
-    height: 400,
+    height: 450,
     backgroundImage: `url(${HeroIMG})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
   aboutPaper: {
     backgroundColor: "#FFFEF2",
-    height: 350,
+    height: 300,
     width: "100%",
   },
 
