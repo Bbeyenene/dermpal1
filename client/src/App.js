@@ -13,6 +13,7 @@ import theme from "./theme";
 import "./App.css";
 // import Footer from "./components/Footer"
 import Profile from "./components/Profile"
+import BootstrapNavbar from "./components/bootstrapNAV"
 
 
 
@@ -67,10 +68,11 @@ class App extends Component {
     return (
       <div className='App'>
         <ThemeProvider theme={theme}>
-          <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+          {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
+          <BootstrapNavbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
           <Route exact path='/' component={Home} />
-          <Route path='/login' render={() => <LoginForm updateUser={this.updateUser} />} />
           <Route path='/signup' render={() => <SignupForm />} />
+          <Route path='/login' render={() => <LoginForm updateUser={this.updateUser} />} />
           <Route path='/search' render={() => <SearchPage />} />
           <Route path='/profile' render={() => <Profile />} />
           {/* <Footer/> */}
