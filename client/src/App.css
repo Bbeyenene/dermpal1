@@ -1,7 +1,10 @@
 /* .App {
   text-align: center;
 } */
+body{
+  background-color:#FFFEF2;
 
+ }
 
 .App-header {
   background-color:white;
@@ -20,5 +23,22 @@
 #nav-container {
   align-items: flex-end;
 }
+
+.MuiCardMedia-root{
+
+  background-size: contain!important;
+}
+
+/* 
+@media ( max-width:600px) {
+
+  .makeStyles-hero-6 {
+    height: 250px!important;
+    right: auto!important;
+    bottom: 0!important;
+  }
+} */
+
+
 
 @import url('https://fonts.googleapis.com/css2?family=Belleza&family=Montserrat&display=swap');

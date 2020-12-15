@@ -1,14 +1,20 @@
 
+
+
+
 import { makeStyles } from "@material-ui/core/styles";
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 800,
+    
   },
   media: {
-    height: 0,
+    height: 60,
     paddingTop: "56.25%", // 16:9
+
+
   },
   expand: {
     transform: "rotate(0deg)",
