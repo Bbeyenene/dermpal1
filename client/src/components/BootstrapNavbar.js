@@ -72,10 +72,10 @@ class BootstrapNavbar extends Component {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
                 <Nav.Link as={Link} to="/login">
-                  Login
+                  login
                 </Nav.Link>
                 <Nav.Link as={Link} to="/signup">
-                  Sign Up
+                  sign up
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import API from "../utils/API";
 import ResultCard from "./ResultCard";
@@ -9,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import "./scanner.css";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 
 function SearchbyScanner() {
   const classes = useStyles();
-
+  const [open, setOpen] = React.useState(false);
   const [products, setProduct] = useState([]);
   // const [productSearch, setProductSearch] = useState("");
   var _scannerIsRunning = false;
@@ -103,6 +102,10 @@ function SearchbyScanner() {
     }
   }
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <Grid
@@ -145,16 +148,17 @@ function SearchbyScanner() {
                 subheader={product.manufacturer}
                 image={product.images[0]}
                 description={product.description}
+                closeCard={handleClose}
               />
             ))}
           </Grid>
         ) : (
           <h3></h3>
         )}
+        <Link to="/searchbyinput"> OR TYPE IN BARCODE </Link>
       </Grid>
     </div>
   );
 }
 
 export default SearchbyScanner;
-

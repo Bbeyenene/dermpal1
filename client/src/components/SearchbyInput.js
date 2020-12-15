@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import ResultCard from "./ResultCard";
@@ -10,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -26,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 function SearchbyInput() {
   const [products, setProduct] = useState([]);
   const [productSearch, setProductSearch] = useState("");
+  const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   useEffect(() => {
     if (products.length) {
@@ -96,6 +94,10 @@ function SearchbyInput() {
 
   // console.log(products);
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <Grid
@@ -146,16 +148,17 @@ function SearchbyInput() {
                 image={product.images[0]}
                 description={product.description}
                 category={product.category}
+                closeCard={handleClose}
               />
             ))}
           </Grid>
         ) : (
           <h3></h3>
         )}
+        <Link to="/profile"> GO TO PROFILE </Link>
       </Grid>
     </div>
   );
 }
 
 export default SearchbyInput;
-

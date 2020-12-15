@@ -1,6 +1,3 @@
-
-
-
 import React from "react";
 import { Redirect } from "react-router-dom";
 import {
@@ -12,6 +9,7 @@ import {
   Link,
 } from "@material-ui/core";
 import axios from "axios";
+import "./Signup-MUI.css";
 
 class Loginmock extends React.Component {
   constructor() {
@@ -141,4 +139,3 @@ class Loginmock extends React.Component {
   }
 }
 export default Loginmock;
-
