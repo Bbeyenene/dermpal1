@@ -1,13 +1,20 @@
 import React from "react";
 import axios from "axios";
-import { Button, TextField, Grid, Paper, Typography, Link } from "@material-ui/core";
-import "./Signup-MUI.css"
-
+import {
+  Button,
+  TextField,
+  Grid,
+  Paper,
+  Typography,
+  Link,
+} from "@material-ui/core";
+import "./Signup-MUI.css";
+import { Redirect } from "react-router-dom";
 
 class SignupForm extends React.Component {
   constructor() {
     super();
-    this.state = { username: "", password: "", confirmPassword: "", redirectTo: null };
+    this.state = { username: "", password: "", redirectTo: null };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -18,43 +25,40 @@ class SignupForm extends React.Component {
     });
   }
 
-
   handleSubmit(event) {
-    console.log('sign-up handleSubmit, username: ')
-    console.log(this.state.username)
-    event.preventDefault()
+    console.log("sign-up handleSubmit, username: ");
+    console.log(this.state.username);
+    event.preventDefault();
 
     //request to server to add a new username/password
-    axios.post('/api/user/', {
-      username: this.state.username,
-      password: this.state.password
-    })
-      .then(response => {
-        console.log(response)
-        if (!response.data.errmsg) {
-          console.log('successful signup')
-
-          this.setState({ //redirect to login page
-
-            redirectTo: '/profile'
-          })
-          // window.location.replace("/member")
-        } else {
-          console.log('username already taken')
-          this.setState({ //redirect to login page
-            redirectTo: '/login'
-          })
-        }
-      }).catch(error => {
-        console.log('signup error: ')
-        console.log(error)
-
+    axios
+      .post("/api/user/", {
+        username: this.state.username,
+        password: this.state.password,
       })
+      .then((response) => {
+        console.log(response);
+        if (!response.data.errmsg) {
+          // console.log('successful signup')
+
+          this.setState({
+            redirectTo: "/login",
+          });
+          console.log(this.state);
+        } else {
+          console.log("username already taken");
+          // this.setState({ //redirect to login page
+          //   redirectTo: '/login'
+          // })
+        }
+      })
+      .catch((error) => {
+        console.log("signup error: ");
+        console.log(error);
+      });
   }
 
-
   render() {
-
     return (
       <div>
         <Grid container spacing={0} justify="center" direction="colomn">
@@ -74,10 +78,10 @@ class SignupForm extends React.Component {
                 <Grid item>
                   <Typography component="h1" variant="h5">
                     Sign up
-                    </Typography>
+                  </Typography>
                 </Grid>
                 <Grid item>
-                  <form >
+                  <form>
                     <Grid container direction="column" spacing={2}>
                       <Grid item>
                         <TextField
@@ -113,7 +117,7 @@ class SignupForm extends React.Component {
                           onClick={this.handleSubmit}
                         >
                           Submit
-                          </Button>
+                        </Button>
                       </Grid>
                     </Grid>
                   </form>
@@ -121,7 +125,7 @@ class SignupForm extends React.Component {
                 <Grid item>
                   <Link href="#" variant="body2">
                     Forgot Password?
-                    </Link>
+                  </Link>
                 </Grid>
               </Paper>
             </Grid>
@@ -129,7 +133,6 @@ class SignupForm extends React.Component {
         </Grid>
       </div>
     );
-
   }
 }
 export default SignupForm;

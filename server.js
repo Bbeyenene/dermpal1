@@ -56,7 +56,7 @@ mongoose
 
       // CONNECTION TO API ROUTES
       app.use(user);
-      app.use(products)
+      app.use(products);
 
       if (process.env.NODE_ENV === "production") {
         app.use(express.static(path.join(__dirname, "client/build")));
