@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 import {
   Button,
   TextField,
@@ -46,7 +46,7 @@ class Loginmock extends React.Component {
           // remember to redirect to search page
 
           this.setState({
-            redirectTo: "/profile",
+            redirectTo: "/search",
           });
         }
       })
@@ -82,7 +82,7 @@ class Loginmock extends React.Component {
                     </Typography>
                   </Grid>
                   <Grid item>
-                    <form >
+                    <form>
                       <Grid container direction="column" spacing={2}>
                         <Grid item>
                           <TextField

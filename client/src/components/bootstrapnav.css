@@ -1,0 +1,29 @@
+.navbar{
+    box-shadow: 0px 6px 8px -6px rgba(0,0,0,.5);
+    }
+
+
+.navbar-light .navbar-toggler{
+    border: none;
+
+
+}
+
+
+.navbar-light .navbar-nav .nav-link{
+
+    font-family: Montserrat;
+    font-size: 1.0rem;
+}
+
+
+
+
+
+
+.navbar-brand {
+
+font-family: belleza;
+font-size: 1.35rem!important;
+
+}

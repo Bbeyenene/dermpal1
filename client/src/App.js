@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Route } from 'react-router-dom';
-
-// boilerplate components
-import Navbar from './components/navbar';
-import SignupForm from './components/SignupForm-MUI';
-import LoginForm from './components/LoginForm-MUI';
-import Home from './components/Home-MUI';
+import React, { Component } from "react";
+import axios from "axios";
+import SignupForm from "./components/SignupForm-MUI";
+import LoginForm from "./components/LoginForm-MUI";
+import Home from "./components/Home-MUI";
 import SearchPage from "./components/Searchpage";
 import { ThemeProvider } from "@material-ui/core";
 import theme from "./theme";
+import Profile from "./components/Profile";
+import BootstrapNavbar from "./components/BootstrapNavbar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-// import Footer from "./components/Footer"
-import Profile from "./components/Profile"
-import BootstrapNavbar from "./components/bootstrapNAV"
-
-
 
 class App extends Component {
   constructor() {
@@ -40,13 +34,13 @@ class App extends Component {
 
   getUser() {
     axios
-      .get('/api/user/')
+      .get("/api/user/")
       .then((response) => {
-        console.log('Get user response: ');
+        console.log("Get user response: ");
 
         if (response.data.user) {
           console.log(
-            'Get User: There is a user saved in the server session: '
+            "Get User: There is a user saved in the server session: "
           );
 
           this.setState({
@@ -54,30 +48,39 @@ class App extends Component {
             username: response.data.user.username,
           });
         } else {
-          console.log('Get user: no user');
+          console.log("Get user: no user");
           this.setState({
             loggedIn: false,
             username: null,
           });
         }
       })
-      .catch((err) => console.log('err', err));
+      .catch((err) => console.log("err", err));
   }
 
   render() {
     return (
-      <div className='App'>
-        <ThemeProvider theme={theme}>
-          {/* <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} /> */}
-          <BootstrapNavbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-          <Route exact path='/' component={Home} />
-          <Route path='/signup' render={() => <SignupForm />} />
-          <Route path='/login' render={() => <LoginForm updateUser={this.updateUser} />} />
-          <Route path='/search' render={() => <SearchPage />} />
-          <Route path='/profile' render={() => <Profile />} />
-          {/* <Footer/> */}
-        </ThemeProvider>
-      </div>
+      <Router>
+        <div className="App">
+          <ThemeProvider theme={theme}>
+            <BootstrapNavbar
+              updateUser={this.updateUser}
+              loggedIn={this.state.loggedIn}
+              currentUser={this.state.username}
+            />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/signup" render={() => <SignupForm />} />
+              <Route
+                path="/login"
+                render={() => <LoginForm updateUser={this.updateUser} />}
+              />
+              <Route path="/search" render={() => <SearchPage />} />
+              <Route path="/profile" render={() => <Profile />} />
+            </Switch>
+          </ThemeProvider>
+        </div>
+      </Router>
     );
   }
 }
