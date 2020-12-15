@@ -78,8 +78,8 @@ class App extends Component {
                 path="/login"
                 render={() => <LoginForm updateUser={this.updateUser} />}
               />
-              <Route path="/search" render={() => <SearchbyScanner />} />
-              <Route path="/searchbyinput" render={() => <SearchbyInput />} />
+              <Route path="/search" render={() => <SearchbyScanner username={this.state.username} />} />
+              <Route path="/searchbyinput" render={() => <SearchbyInput username={this.state.username} />} />
               <Route path="/profile" render={() => <Profile />} />
             </Switch>
           </ThemeProvider>

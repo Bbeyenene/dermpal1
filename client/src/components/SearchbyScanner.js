@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SearchbyScanner() {
+function SearchbyScanner(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [products, setProduct] = useState([]);
@@ -148,6 +148,7 @@ function SearchbyScanner() {
                 subheader={product.manufacturer}
                 image={product.images[0]}
                 description={product.description}
+                username={props.username}
                 closeCard={handleClose}
               />
             ))}

@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SearchbyInput() {
+function SearchbyInput(props) {
   const [products, setProduct] = useState([]);
   const [productSearch, setProductSearch] = useState("");
   const [open, setOpen] = React.useState(false);
@@ -148,6 +148,7 @@ function SearchbyInput() {
                 image={product.images[0]}
                 description={product.description}
                 category={product.category}
+                username={props.username}
                 closeCard={handleClose}
               />
             ))}

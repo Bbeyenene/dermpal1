@@ -9,10 +9,10 @@ export default class Profile extends React.Component {
   };
 
   componentDidMount() {
-    API.retrieveProduct().then((res) => {
-      console.log(res.data);
-      this.setState({ products: res.data });
-    });
+    // API.retrieveProduct.then((res) => {
+    //   console.log(res.data);
+    //   this.setState({ products: res.data });
+    // });
   }
 
   handleRemove(product) {

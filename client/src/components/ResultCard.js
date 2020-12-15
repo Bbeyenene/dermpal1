@@ -30,7 +30,7 @@ export default function ResultCard(props) {
     category: props.category,
     description: props.description,
     image: props.image,
-    // review: props.review
+    username: props.username,
   };
 
   console.log(saveToDB);
