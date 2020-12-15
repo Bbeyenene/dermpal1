@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 
 
-// Define userSchema
+// Define User Schema 
 var user = new Schema({
 
     username: String,
@@ -13,7 +13,7 @@ var user = new Schema({
 });
 
 
-// Define schema methods
+// Define Schema methods
  user.methods = {
     checkPassword: function (inputPassword) {
         return bcrypt.compareSync(inputPassword, this.password)
