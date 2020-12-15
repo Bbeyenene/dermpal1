@@ -10,7 +10,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const user = require("./routes/user");
-const products = require("./routes/apiRoutes");
+const products = require("./routes/products");
 const PORT = process.env.PORT || 8080;
 
 // MIDDLEWARE
@@ -27,6 +27,7 @@ app.use(cors());
 
 // DATABASE CONNECTION
 const uri = process.env.MONGODB_URI;
+// console.log({uri});
 
 mongoose
   .connect(uri, {
@@ -40,46 +41,47 @@ mongoose
       /** ready to use. The `mongoose.connect()` promise resolves to undefined. */
       console.log("Connected to Mongo");
 
-      // Sessions
-      app.use(
-        session({
-          secret: "fraggle-rock", //pick a random string to make the hash that is generated secure
-          store: new MongoStore({ mongooseConnection: mongoose.connection }),
-          resave: false, //required
-          saveUninitialized: false, //required
-        })
-      );
-
-      // Passport
-      app.use(passport.initialize());
-      app.use(passport.session()); // calls the deserializeUser
-
-      // CONNECTION TO API ROUTES
-      app.use(user);
-      app.use(products);
-
-      if (process.env.NODE_ENV === "production") {
-        app.use(express.static(path.join(__dirname, "client/build")));
-        //
-        app.get("*", (req, res) => {
-          res.sendFile(path.join((__dirname = "client/build/index.html")));
-        });
-      }
-
-      // build mode
-      app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname + "/client/public/index.html"));
-      });
-
-      // Starting Server
-      app.listen(PORT, () => {
-        console.log(`App listening on PORT: ${PORT}`);
-      });
-    },
-    (err) => {
-      /** handle initial connection error */
-      console.log("error connecting to Mongo: ");
-      console.log(err);
     }
+    // (err) => {
+    //   /** handle initial connection error */
+    //   console.log("error connecting to Mongo: ");
+    //   console.log(err);
+    // }
   )
   .catch((err) => console.log({ err }));
+  // Sessions
+  app.use(
+    session({
+      secret: "fraggle-rock", //pick a random string to make the hash that is generated secure
+      store: new MongoStore({ mongooseConnection: mongoose.connection }),
+      resave: false, //required
+      saveUninitialized: false, //required
+    })
+  );
+
+  // Passport
+  app.use(passport.initialize());
+  app.use(passport.session()); // calls the deserializeUser
+
+  // CONNECTION TO API ROUTES
+  app.use(user);
+  app.use(products)
+
+  if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "client/build")));
+    //
+    app.get("*", (req, res) => {
+      res.sendFile(path.join((__dirname = "client/build/index.html")));
+    });
+  }
+
+  // build mode
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/client/public/index.html"));
+  });
+
+
+  // Starting Server
+  app.listen(PORT, () => {
+    console.log(`App listening on PORT: ${PORT}`);
+  });

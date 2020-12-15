@@ -9,25 +9,17 @@ export default {
       proxyUrl + barcodeInput + "&formatted=y&key=hrsh89sx6t7478jna9yf81jqmxbhke"
     );
   },
-  postProduct: productData => {
-    return axios.post('/api/products/post', productData)
-    // .then(result => result.data);
-  },
-  retrieveProduct: () => {
-    return axios.get(`/api/products/all`, {
-      // "x-auth-token": this.props.userInfo.userId
-    })
-    // .then(result => result.data);
-  },
-  getOneProduct: id => {
-    return axios.get(`/api/products/id=${id}`);
-  },
-  deleteProduct: id => {
-    return axios.delete(`/api/products/del/id=${id}`);
-  },
-
-  saveProduct: id => {
-    return axios.patch(`/api/products/update/id=${id}`);
-  },
+  postProduct: newProduct=> {
+    return axios.post('/api/product/', newProduct)
+    .then(result => result.data);
+  }
 };
 
+//  retrieveProduct() => (
+//     return axios.get('/api/product/all')
+//     .then(result => result.data);
+//   }
+
+//   deleteProduct: id => {
+//     return axios.delete(`/api/product/del/id=${id}`);
+//   }
