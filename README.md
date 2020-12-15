@@ -23,6 +23,6 @@ No installations are needed to use this app. The application is deployed on Hero
 # DEPLOYED APPLICATION LINK : https://dermpal1.herokuapp.com/
 
 # CONTRIBUTORS 
-https://github.com/dresroldan
-https://github.com/Bbeyenene
-https://github.com/preronam
+1) https://github.com/dresroldan
+2) https://github.com/Bbeyenene
+3) https://github.com/preronam
