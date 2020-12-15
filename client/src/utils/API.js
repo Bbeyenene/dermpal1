@@ -12,13 +12,21 @@ export default {
   postProduct: newProduct=> {
     return axios.post('/api/product/', newProduct)
     .then(result => result.data);
+  },
+
+  retrieveProduct:() => {
+    return axios.get('/api/product/all')
+   
   }
+
+
+
 };
 
-//  retrieveProduct() => (
-//     return axios.get('/api/product/all')
-//     .then(result => result.data);
-//   }
+
+
+
+
 
 //   deleteProduct: id => {
 //     return axios.delete(`/api/product/del/id=${id}`);

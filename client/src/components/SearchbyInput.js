@@ -123,7 +123,7 @@ function SearchbyInput(props) {
                 />
               </Grid>
 
-              <Grid item xs={10}>
+              <Grid item >
                 <Button
                   size="medium"
                   variant="contained"

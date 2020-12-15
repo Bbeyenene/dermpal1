@@ -1,22 +1,10 @@
-/* .App {
-  text-align: center;
-} */
+
 body{
   background-color:#FFFEF2;
 
  }
 
-/* .App-header {
-  background-color:white;
-  height: 35px;
-  padding: 20px;
-  
-} */
-
-/* .navbar {
-  margin-top: auto;
-} */
-#top-filler {
+ #top-filler {
   margin-bottom: auto;
 }
 
@@ -38,17 +26,14 @@ body{
 font-family: 'Roboto'}
 
 
+/* @media ( max-width:700px) {
 
-/* class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center" */
-/* 
-@media ( max-width:600px) {
-
-  .makeStyles-hero-6 {
-    height: 250px!important;
-    right: auto!important;
-    bottom: 0!important;
+  .makeStyles-hero-1{
+   background-image:
+     width: 100%,
+    height: 25px
   }
-} */
+}   */
 
 
 
