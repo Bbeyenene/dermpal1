@@ -1,3 +1,7 @@
+
+
+
+
 import React from "react";
 import axios from "axios";
 import {
@@ -9,12 +13,19 @@ import {
   Link,
 } from "@material-ui/core";
 import "./Signup-MUI.css";
-import { Redirect } from "react-router-dom";
+import Box from "@material-ui/core/Box";
+
+
 
 class SignupForm extends React.Component {
   constructor() {
     super();
-    this.state = { username: "", password: "", redirectTo: null };
+    this.state = {
+      username: "",
+      password: "",
+      confirmPassword: "",
+      redirectTo: null,
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -39,17 +50,20 @@ class SignupForm extends React.Component {
       .then((response) => {
         console.log(response);
         if (!response.data.errmsg) {
-          // console.log('successful signup')
+          console.log("successful signup");
 
           this.setState({
-            redirectTo: "/login",
+            //redirect to login page
+
+            redirectTo: "/profile",
           });
-          console.log(this.state);
+          // window.location.replace("/member")
         } else {
           console.log("username already taken");
-          // this.setState({ //redirect to login page
-          //   redirectTo: '/login'
-          // })
+          this.setState({
+            //redirect to login page
+            redirectTo: "/login",
+          });
         }
       })
       .catch((error) => {
@@ -58,81 +72,87 @@ class SignupForm extends React.Component {
       });
   }
 
+
+
   render() {
     return (
       <div>
-        <Grid container spacing={0} justify="center" direction="colomn">
-          <Grid item>
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              spacing={2}
-              className="login-form"
-            >
-              <Paper
-                variant="elevation"
-                elevation={2}
-                className="login-background"
-              >
-                <Grid item>
-                  <Typography component="h1" variant="h5">
-                    Sign up
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <form>
-                    <Grid container direction="column" spacing={2}>
-                      <Grid item>
-                        <TextField
-                          type="email"
-                          placeholder="Email"
-                          fullWidth
-                          name="username"
-                          variant="outlined"
-                          value={this.state.username}
-                          onChange={this.handleChange}
-                          required
-                          autoFocus
-                        />
+  
+              <Grid container spacing={0} justify="center" direction="colomn">
+                <Grid item xs={7} md={7} lg={6} >
+                  <Grid
+                    container
+                    direction="column"
+                    justify="center"
+                    spacing={2}
+                    className="login-form"
+                  >
+                    <Paper
+                      
+                      elevation={5}
+                      className="login-background"
+                      
+                    >
+                      <Grid item >
+                        <Typography className= "typography" variant="h3" >
+                          Sign up
+                        </Typography>
                       </Grid>
                       <Grid item>
-                        <TextField
-                          type="password"
-                          placeholder="Password"
-                          fullWidth
-                          name="password"
-                          variant="outlined"
-                          value={this.state.password}
-                          onChange={this.handleChange}
-                          required
-                        />
+                        <form>
+                          <Grid container direction="column" spacing={2}>
+                            <Grid item>
+                              <TextField
+                                type="email"
+                                placeholder="Email"
+                                fullWidth
+                                name="username"
+                                // variant="outlined"
+                                value={this.state.username}
+                                onChange={this.handleChange}
+                                required
+                                autoFocus
+                              />
+                            </Grid>
+                            <Grid item>
+                              <TextField
+                                type="password"
+                                placeholder="Password"
+                                fullWidth
+                                name="password"
+                                // variant="outlined"
+                                value={this.state.password}
+                                onChange={this.handleChange}
+                                required
+                              />
+                            </Grid>
+                            <Grid item>
+                              <Button
+                                variant="contained"
+                                color="primary"
+                                type="submit"
+                                className="button-block"
+                                onClick={this.handleSubmit}
+                              >
+                                Submit
+                              </Button>
+                            </Grid>
+                          </Grid>
+                        </form>
                       </Grid>
                       <Grid item>
-                        <Button
-                          variant="contained"
-                          color="primary"
-                          type="submit"
-                          className="button-block"
-                          onClick={this.handleSubmit}
-                        >
-                          Submit
-                        </Button>
+                        <Link href="#" variant="body2">
+                          Forgot Password?
+                        </Link>
                       </Grid>
-                    </Grid>
-                  </form>
+                    </Paper>
+                  </Grid>
                 </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    Forgot Password?
-                  </Link>
-                </Grid>
-              </Paper>
-            </Grid>
-          </Grid>
-        </Grid>
+              </Grid>
+ 
       </div>
     );
   }
 }
 export default SignupForm;
+

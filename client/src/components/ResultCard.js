@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -8,15 +8,16 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
-import ClearRoundedIcon from '@material-ui/icons/ClearRounded';
+import ClearRoundedIcon from "@material-ui/icons/ClearRounded";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useStyles from "./ResultCard-styles";
-import API from '../utils/API'
+import API from "../utils/API";
+import SaveIcon from "@material-ui/icons/Save";
 
 export default function ResultCard(props) {
-  const history = useHistory()
+  const history = useHistory();
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -24,33 +25,26 @@ export default function ResultCard(props) {
     setExpanded(!expanded);
   };
 
-  // const onRemove = () => {
-
-  // }
-
   const saveToDB = {
     title: props.title,
     category: props.category,
     description: props.description,
     image: props.image,
     // review: props.review
-  }
+  };
 
   console.log(saveToDB);
 
   //API.retrievProduct()
   const saveItem = () => {
     API.postProduct(saveToDB)
-      .then(saved => console.log(saved.data))
-      .catch(err => console.log(`data not posted: ${err}`))
-  }
+      .then((saved) => console.log(saved.data))
+      .catch((err) => console.log(`data not posted: ${err}`));
+  };
 
   return (
-    <Card className={classes.root} key={props.id} >
-      <CardHeader
-        title={props.title}
-        subheader={props.subheader}
-      />
+    <Card className={classes.root} key={props.id} elevation={3}>
+      <CardHeader title={props.title} subheader={props.subheader} />
 
       <CardMedia
         className={classes.media}
@@ -65,17 +59,11 @@ export default function ResultCard(props) {
       </CardContent>
 
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton aria-label="post" onClick={() => saveItem()}>
+          <SaveIcon />
         </IconButton>
 
-        <IconButton aria-label="post" onClick={() => saveItem()} >
-          <ClearRoundedIcon />
-        </IconButton>
-
-        <IconButton aria-label="delete" onClick={() => {
-          history.goBack()
-        }} >
+        <IconButton aria-label="delete" onClick={props.closeCard}>
           <ClearRoundedIcon />
         </IconButton>
 

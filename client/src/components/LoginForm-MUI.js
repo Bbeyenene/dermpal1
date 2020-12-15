@@ -9,6 +9,7 @@ import {
   Link,
 } from "@material-ui/core";
 import axios from "axios";
+import "./Signup-MUI.css";
 
 class Loginmock extends React.Component {
   constructor() {
@@ -46,7 +47,7 @@ class Loginmock extends React.Component {
           // remember to redirect to search page
 
           this.setState({
-            redirectTo: "/search",
+            redirectTo: "/profile",
           });
         }
       })
@@ -63,7 +64,7 @@ class Loginmock extends React.Component {
       return (
         <div>
           <Grid container spacing={0} justify="center" direction="row">
-            <Grid item>
+            <Grid item xs={7} md={5} lg={3}>
               <Grid
                 container
                 direction="column"
@@ -73,11 +74,11 @@ class Loginmock extends React.Component {
               >
                 <Paper
                   variant="elevation"
-                  elevation={2}
+                  elevation={5}
                   className="login-background"
                 >
                   <Grid item>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h3">
                       Log In
                     </Typography>
                   </Grid>
@@ -90,7 +91,7 @@ class Loginmock extends React.Component {
                             placeholder="Email"
                             fullWidth
                             name="username"
-                            variant="outlined"
+                            // variant="outlined"
                             value={this.state.username}
                             onChange={this.handleChange}
                             required
@@ -103,7 +104,7 @@ class Loginmock extends React.Component {
                             placeholder="Password"
                             fullWidth
                             name="password"
-                            variant="outlined"
+                            // variant="outlined"
                             value={this.state.password}
                             onChange={this.handleChange}
                             required

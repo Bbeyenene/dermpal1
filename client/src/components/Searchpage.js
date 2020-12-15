@@ -1,18 +1,18 @@
-import React from "react";
-import SearchbyInput from "../components/SearchbyInput"
+// import React from "react";
+// // import SearchbyInput from "../components/SearchbyInput"
 // import SearchbyScanner from "../components/SearchbyScanner"
 
-function SearchPage() {
-  return (
+// function SearchPage() {
+//   return (
   
-<div>
-<SearchbyInput/>
-{/* <SearchbyScanner/> */}
+// <div>
+// {/* <SearchbyInput/> */}
+// <SearchbyScanner/>
 
-</div>
+// </div>
 
   
-  );
-}
+//   );
+// }
 
-export default SearchPage;
+// export default SearchPage;

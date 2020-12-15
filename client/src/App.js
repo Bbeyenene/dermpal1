@@ -3,13 +3,15 @@ import axios from "axios";
 import SignupForm from "./components/SignupForm-MUI";
 import LoginForm from "./components/LoginForm-MUI";
 import Home from "./components/Home-MUI";
-import SearchPage from "./components/Searchpage";
+import SearchbyScanner from "./components/SearchbyScanner";
+import SearchbyInput from "./components/SearchbyInput";
 import { ThemeProvider } from "@material-ui/core";
 import theme from "./theme";
 import Profile from "./components/Profile";
 import BootstrapNavbar from "./components/BootstrapNavbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 class App extends Component {
   constructor() {
@@ -63,6 +65,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <ThemeProvider theme={theme}>
+            <CssBaseline />
             <BootstrapNavbar
               updateUser={this.updateUser}
               loggedIn={this.state.loggedIn}
@@ -75,7 +78,8 @@ class App extends Component {
                 path="/login"
                 render={() => <LoginForm updateUser={this.updateUser} />}
               />
-              <Route path="/search" render={() => <SearchPage />} />
+              <Route path="/search" render={() => <SearchbyScanner />} />
+              <Route path="/searchbyinput" render={() => <SearchbyInput />} />
               <Route path="/profile" render={() => <Profile />} />
             </Switch>
           </ThemeProvider>

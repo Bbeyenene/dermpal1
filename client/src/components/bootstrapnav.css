@@ -1,5 +1,6 @@
 .navbar{
     box-shadow: 0px 6px 8px -6px rgba(0,0,0,.5);
+    background-color: white;
     }
 
 
@@ -12,8 +13,8 @@
 
 .navbar-light .navbar-nav .nav-link{
 
-    font-family: Montserrat;
-    font-size: 1.0rem;
+    font-family: Roboto;
+    font-size: 1.1rem;
 }
 
 
@@ -24,6 +25,7 @@
 .navbar-brand {
 
 font-family: belleza;
-font-size: 1.35rem!important;
+font-size: 1.45rem!important;
 
 }
+

@@ -1,24 +1,56 @@
 /* .App {
   text-align: center;
 } */
+body{
+  background-color:#FFFEF2;
 
+ }
 
-.App-header {
+/* .App-header {
   background-color:white;
   height: 35px;
   padding: 20px;
   
-}
+} */
 
-.navbar {
+/* .navbar {
   margin-top: auto;
-}
+} */
 #top-filler {
   margin-bottom: auto;
 }
 
 #nav-container {
   align-items: flex-end;
+
 }
 
+.MuiCardMedia-root{
+
+  background-size: contain!important;
+}
+
+.MuiButton-label{
+
+  color: white;
+  font-weight: bold;
+  letter-spacing: inherit;
+font-family: 'Roboto'}
+
+
+
+/* class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center" */
+/* 
+@media ( max-width:600px) {
+
+  .makeStyles-hero-6 {
+    height: 250px!important;
+    right: auto!important;
+    bottom: 0!important;
+  }
+} */
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Belleza&family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');

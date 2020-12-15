@@ -1,0 +1,15 @@
+
+ video,  canvas{
+
+    width: 100%;
+    height:auto;
+
+
+
+}
+
+canvas.drawingBuffer, video.drawingBuffer{
+
+display:none;
+
+}
