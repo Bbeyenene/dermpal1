@@ -32,7 +32,6 @@ router.post("/api/user/", (req, res) => {
 router.post(
   "/api/user/login",
   function (req, res, next) {
-    console.log("routes/user.js, login, req.body: ");
     console.log(req.body);
     next();
   },
@@ -47,7 +46,6 @@ router.post(
 );
 
 router.get("/api/user/member", (req, res, next) => {
-  console.log("===== user!!======");
   console.log(req.user);
   if (req.user) {
     res.json({ user: req.user });
