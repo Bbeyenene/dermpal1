@@ -21,10 +21,7 @@ router.post('/api/product/',(req,res) => {
  router.get("/api/product/all", async (req, res) => {
     try {
       const getProduct = await Product.find({});
-      console.log("------------------whats up");
-  
-      console.log(getProduct);
-      console.log("--------------------");
+      
       res.json(getProduct);
     } catch (erf) {
       res.send({ errHappend: err });
