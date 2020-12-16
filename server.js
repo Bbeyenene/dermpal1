@@ -42,11 +42,7 @@ mongoose
       console.log("Connected to Mongo");
 
     }
-    // (err) => {
-    //   /** handle initial connection error */
-    //   console.log("error connecting to Mongo: ");
-    //   console.log(err);
-    // }
+  
   )
   .catch((err) => console.log({ err }));
   // Sessions

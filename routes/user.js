@@ -3,11 +3,12 @@ const router = express.Router();
 const User = require("../database/models/user");
 const passport = require("../passport");
 
+//User Sign Up//
 router.post("/api/user/", (req, res) => {
   console.log("user signup");
 
   const { username, password } = req.body;
-  // ADD VALIDATION
+  // ADDING VALIDATION//
   User.findOne({ username: username }, (err, user) => {
     if (err) {
       console.log("User.js post error: ", err);
@@ -27,11 +28,10 @@ router.post("/api/user/", (req, res) => {
     }
   });
 });
-
+// User Login//
 router.post(
   "/api/user/login",
   function (req, res, next) {
-    console.log("routes/user.js, login, req.body: ");
     console.log(req.body);
     next();
   },
@@ -46,7 +46,6 @@ router.post(
 );
 
 router.get("/api/user/member", (req, res, next) => {
-  console.log("===== user!!======");
   console.log(req.user);
   if (req.user) {
     res.json({ user: req.user });
@@ -54,7 +53,7 @@ router.get("/api/user/member", (req, res, next) => {
     res.json({ user: null });
   }
 });
-
+//User Logout//
 router.post("/api/user/logout", (req, res) => {
   if (req.user) {
     req.logout();

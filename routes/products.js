@@ -19,28 +19,4 @@ router.post("/api/product/", (req, res) => {
 });
 
 
-router.get("/api/product/all", async (req, res) => {
-  try {
-    const getProduct = await Product.find({});
-    console.log("------------------whats up");
-
-    console.log(getProduct);
-    console.log("--------------------");
-    res.json(getProduct);
-  } catch (erf) {
-    res.send({ errHappend: err });
-  }
-});
-
-
-
-router.delete("/api/product/del/id=:productId", async (req, res) => {
-  try {
-    const deletedProduct = await Product.remove({ _id: req.params.productId });
-    res.json(deletedProduct);
-  } catch (err) {
-    res.json({ message: err });
-  }
-});
-
-module.exports = router;
+router.get("/api/product/
