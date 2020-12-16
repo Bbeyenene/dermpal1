@@ -47,7 +47,7 @@ class Loginmock extends React.Component {
           // remember to redirect to search page
 
           this.setState({
-            redirectTo: "/profile",
+            redirectTo: "/search",
           });
         }
       })
@@ -64,7 +64,7 @@ class Loginmock extends React.Component {
       return (
         <div>
           <Grid container spacing={0} justify="center" direction="row">
-            <Grid item xs={7} md={5} lg={3}>
+            <Grid item  lg={3}>
               <Grid
                 container
                 direction="column"
@@ -123,11 +123,6 @@ class Loginmock extends React.Component {
                         </Grid>
                       </Grid>
                     </form>
-                  </Grid>
-                  <Grid item>
-                    <Link href="#" variant="body2">
-                      Forgot Password?
-                    </Link>
                   </Grid>
                 </Paper>
               </Grid>

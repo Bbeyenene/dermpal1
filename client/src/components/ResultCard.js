@@ -62,10 +62,10 @@ export default function ResultCard(props) {
         <IconButton aria-label="post" onClick={() => saveItem()}>
           <SaveIcon />
         </IconButton>
-
+{/* 
         <IconButton aria-label="delete" onClick={props.closeCard}>
           <ClearRoundedIcon />
-        </IconButton>
+        </IconButton> */}
 
         <IconButton
           className={clsx(classes.expand, {
