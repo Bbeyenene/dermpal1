@@ -28,6 +28,3 @@ export default {
 
 
 
-//   deleteProduct: id => {
-//     return axios.delete(`/api/product/del/id=${id}`);
-//   }
