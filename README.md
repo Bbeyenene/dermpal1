@@ -3,15 +3,15 @@
 DermPal is a barcode scanning app that is designed to help the user find skincare products that are compatible with their skin.
 
  ## Table of Contents
-   * [USER STORY](#USER-STORY)
+   * [User story](#User-story)
    
-   * [FEATURES](#FEATURES)
+   * [Features](#Features)
 
-   * [INSTRUCTIONS FOR USE ](#INSTRUCTIONS-FOR-USE )
+   * [Instructions for use ](#IInstructions-For-Use)
 
    * [Contributors ](#Contributors )
    
-   * [Deployed Dermpal URL](#Deployed-Dermpal-URL) 
+   * [Deployed dermpal URL](#Deployed-Dermpal-URL) 
      
   * [License](#license)
 
