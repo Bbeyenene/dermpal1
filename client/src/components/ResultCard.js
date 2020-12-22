@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -8,16 +8,16 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
-import ClearRoundedIcon from "@material-ui/icons/ClearRounded";
+
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useStyles from "./ResultCard-styles";
 import API from "../utils/API";
 import SaveIcon from "@material-ui/icons/Save";
 
 export default function ResultCard(props) {
-  const history = useHistory();
+  // const history = useHistory();
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 

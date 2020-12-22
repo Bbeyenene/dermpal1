@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 function SearchbyInput(props) {
   const [products, setProduct] = useState([]);
   const [productSearch, setProductSearch] = useState("");
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   useEffect(() => {
     if (products.length) {
@@ -94,9 +94,9 @@ function SearchbyInput(props) {
 
   // console.log(products);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   return (
     <div>
@@ -149,12 +149,12 @@ function SearchbyInput(props) {
                 description={product.description}
                 category={product.category}
                 username={props.username}
-                closeCard={handleClose}
+                // closeCard={handleClose}
               />
             ))}
           </Grid>
         ) : (
-          <h3></h3>
+          <h3>No products to display</h3>
         )}
         <Link to="/profile"> GO TO PROFILE </Link>
       </Grid>

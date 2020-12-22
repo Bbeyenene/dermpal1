@@ -27,7 +27,7 @@ class BootstrapNavbar extends Component {
           });
           window.location.replace("/");
           this.setState({
-            redirectTo: "/profile",
+            redirectTo: "/login",
           });
         }
       })

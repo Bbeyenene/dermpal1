@@ -10,8 +10,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import CropFreeIcon from "@material-ui/icons/CropFree";
 import InfoIcon from "@material-ui/icons/Info";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import Icon from "@material-ui/core";
-import { Redirect } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   hero: {
