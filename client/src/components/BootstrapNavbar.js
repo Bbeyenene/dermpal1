@@ -51,13 +51,13 @@ class BootstrapNavbar extends Component {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link as={Link} to="/search">
+                <Nav.Link eventKey="1" as={Link} to="/search">
                   Search
                 </Nav.Link>
-                <Nav.Link as={Link} to="/profile">
+                <Nav.Link eventKey="2" as={Link} to="/profile">
                   Profile
                 </Nav.Link>
-                <Nav.Link as={Link} to="/" onClick={this.logout}>
+                <Nav.Link eventKey="3" as={Link} to="/" onClick={this.logout}>
                   Logout
                 </Nav.Link>
               </Nav>
@@ -71,10 +71,10 @@ class BootstrapNavbar extends Component {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link as={Link} to="/login">
+                <Nav.Link eventKey="1" as={Link} to="/login">
                   login
                 </Nav.Link>
-                <Nav.Link as={Link} to="/signup">
+                <Nav.Link eventKey="2" as={Link} to="/signup">
                   sign up
                 </Nav.Link>
               </Nav>

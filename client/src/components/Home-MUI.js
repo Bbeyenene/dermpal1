@@ -63,12 +63,12 @@ export default function Home() {
         <Grid item xs={12}>
           <Box display="flex" justifyContent="center">
             <Paper className={classes.aboutPaper}>
-              <Box m={4} mt={6} mb={0}textAlign="center">
+              <Box m={4} mt={6} mb={0} textAlign="center">
                 <Typography variant="h1">
                   Scan and search skincare products
                 </Typography>
               </Box>
-              <Box m={4} mt={4} mb={0}textAlign="center">
+              <Box m={4} mt={4} mb={0} textAlign="center">
                 <Typography variant="h2">
                   Detect ingredients contained in skincare products and
                   determine if the product is a good fit for your skin.
@@ -81,6 +81,7 @@ export default function Home() {
                     color="secondary"
                     size="medium"
                     startIcon={<SearchIcon />}
+                    to="/signup"
                   >
                     Let's get started
                   </Button>
@@ -97,7 +98,6 @@ export default function Home() {
               <Box m={2} mt={4} textAlign="center">
                 <Typography variant="h1">How it works</Typography>
               </Box>
-
 
               <Box m={0} mt={1} mb={4} textAlign="center">
                 <Typography variant="h2"></Typography>

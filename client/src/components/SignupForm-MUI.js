@@ -83,7 +83,7 @@ class SignupForm extends React.Component {
                 className="login-form"
               >
                 <Paper elevation={5} className="login-background">
-                  <Grid item>
+                  <Grid item >
                     <Typography className="typography" variant="h3">
                       Sign up
                     </Typography>

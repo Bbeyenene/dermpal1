@@ -123,7 +123,7 @@ function SearchbyInput(props) {
                 />
               </Grid>
 
-              <Grid item >
+              <Grid item>
                 <Button
                   size="medium"
                   variant="contained"
@@ -134,6 +134,10 @@ function SearchbyInput(props) {
                 >
                   Enter Barcode
                 </Button>
+              </Grid>
+
+              <Grid item>
+                <Link to="/profile"> GO TO PROFILE </Link>
               </Grid>
             </Grid>
           </Paper>
@@ -154,9 +158,8 @@ function SearchbyInput(props) {
             ))}
           </Grid>
         ) : (
-          <h3>No products to display</h3>
+          <h3></h3>
         )}
-        <Link to="/profile"> GO TO PROFILE </Link>
       </Grid>
     </div>
   );

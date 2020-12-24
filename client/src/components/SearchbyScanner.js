@@ -135,6 +135,10 @@ function SearchbyScanner(props) {
                   Start/Stop Scanner
                 </Button>
               </Grid>
+
+              <Grid item>
+                <Link to="/searchbyinput"> OR TYPE IN BARCODE </Link>
+              </Grid>
             </Grid>
           </Paper>
         </Grid>
@@ -154,9 +158,8 @@ function SearchbyScanner(props) {
             ))}
           </Grid>
         ) : (
-          <h3>No products to display</h3>
+          <h3></h3>
         )}
-        <Link to="/searchbyinput"> OR TYPE IN BARCODE </Link>
       </Grid>
     </div>
   );
