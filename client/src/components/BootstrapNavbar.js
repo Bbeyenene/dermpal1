@@ -45,19 +45,19 @@ class BootstrapNavbar extends Component {
       <div>
         {loggedIn ? (
           <Navbar collapseOnSelect expand="lg">
-            <Navbar.Brand as={Link} to="/profile">
+            <Navbar.Brand eventKey="1" as={Link} to="/profile">
               DermPal
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link eventKey="1" as={Link} to="/search">
+                <Nav.Link eventKey="2" as={Link} to="/search">
                   Search
                 </Nav.Link>
-                <Nav.Link eventKey="2" as={Link} to="/profile">
+                <Nav.Link eventKey="3" as={Link} to="/profile">
                   Profile
                 </Nav.Link>
-                <Nav.Link eventKey="3" as={Link} to="/" onClick={this.logout}>
+                <Nav.Link eventKey="4" as={Link} to="/" onClick={this.logout}>
                   Logout
                 </Nav.Link>
               </Nav>
@@ -65,16 +65,16 @@ class BootstrapNavbar extends Component {
           </Navbar>
         ) : (
           <Navbar collapseOnSelect expand="lg">
-            <Navbar.Brand as={Link} to="/">
-              Dermpal
+            <Navbar.Brand eventKey="1" as={Link} to="/">
+              DermPal
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link eventKey="1" as={Link} to="/login">
+                <Nav.Link eventKey="2" as={Link} to="/login">
                   login
                 </Nav.Link>
-                <Nav.Link eventKey="2" as={Link} to="/signup">
+                <Nav.Link eventKey="3" as={Link} to="/signup">
                   sign up
                 </Nav.Link>
               </Nav>

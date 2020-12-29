@@ -10,7 +10,7 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 
 import Typography from "@material-ui/core/Typography";
-
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useStyles from "./ResultCard-styles";
 import API from "../utils/API";
@@ -24,6 +24,10 @@ export default function ResultCard(props) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+ 
+
+
 
   const saveToDB = {
     title: props.title,
@@ -62,10 +66,10 @@ export default function ResultCard(props) {
         <IconButton aria-label="post" onClick={() => saveItem()}>
           <SaveIcon />
         </IconButton>
-{/* 
-        <IconButton aria-label="delete" onClick={props.closeCard}>
-          <ClearRoundedIcon />
-        </IconButton> */}
+
+        <IconButton aria-label="delete" >
+          <HighlightOffIcon />
+        </IconButton>
 
         <IconButton
           className={clsx(classes.expand, {

@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 function SearchbyScanner(props) {
   const classes = useStyles();
   // const [open, setOpen] = React.useState(false);

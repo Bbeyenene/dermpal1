@@ -92,11 +92,7 @@ function SearchbyInput(props) {
     console.log("all skin types", allskincounter);
   }
 
-  // console.log(products);
 
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
 
   return (
     <div>
@@ -153,7 +149,7 @@ function SearchbyInput(props) {
                 description={product.description}
                 category={product.category}
                 username={props.username}
-                // closeCard={handleClose}
+                // onDelete={handleDelete}
               />
             ))}
           </Grid>
