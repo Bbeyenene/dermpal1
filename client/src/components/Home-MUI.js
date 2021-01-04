@@ -10,8 +10,13 @@ import SearchIcon from "@material-ui/icons/Search";
 import CropFreeIcon from "@material-ui/icons/CropFree";
 import InfoIcon from "@material-ui/icons/Info";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import Icon from "@material-ui/core";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {
+  Image,
+  Video,
+  Transformation,
+  CloudinaryContext,
+} from "cloudinary-react";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -59,33 +64,39 @@ export default function Home() {
           </Box>
         </Grid>
 
+        {/* <Image cloud_name="dzrk9qfvp" publicId="heroimg_xczvpe" >
+  <Transformation quality="90" width="512" fetchFormat="auto" crop="scale" />
+</Image> */}
+
+
+
         {/* About */}
 
         <Grid item xs={12}>
           <Box display="flex" justifyContent="center">
             <Paper className={classes.aboutPaper}>
-              <Box m={4} mt={6} mb={0}textAlign="center">
+              <Box m={4} mt={6} mb={0} textAlign="center">
                 <Typography variant="h1">
                   Scan and search skincare products
                 </Typography>
               </Box>
-              <Box m={4} mt={4} mb={0}textAlign="center">
+              <Box m={4} mt={4} mb={0} textAlign="center">
                 <Typography variant="h2">
                   Detect ingredients contained in skincare products and
                   determine if the product is a good fit for your skin.
                 </Typography>
               </Box>
               <Box mt={5} mb={6} textAlign="center">
-                <a href="/signup">
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    size="medium"
-                    startIcon={<SearchIcon />}
-                  >
-                    Let's get started
-                  </Button>
-                </a>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="medium"
+                  startIcon={<SearchIcon />}
+                  component={Link}
+                  to="/signup"
+                >
+                  get started
+                </Button>
               </Box>
             </Paper>
           </Box>
@@ -98,7 +109,6 @@ export default function Home() {
               <Box m={2} mt={4} textAlign="center">
                 <Typography variant="h1">How it works</Typography>
               </Box>
-
 
               <Box m={0} mt={1} mb={4} textAlign="center">
                 <Typography variant="h2"></Typography>

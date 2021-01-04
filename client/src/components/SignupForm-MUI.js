@@ -6,10 +6,10 @@ import {
   Grid,
   Paper,
   Typography,
-  Link,
+
 } from "@material-ui/core";
 import "./Signup-MUI.css";
-import Box from "@material-ui/core/Box";
+
 import { Redirect } from "react-router-dom";
 
 class SignupForm extends React.Component {
@@ -83,7 +83,7 @@ class SignupForm extends React.Component {
                 className="login-form"
               >
                 <Paper elevation={5} className="login-background">
-                  <Grid item>
+                  <Grid item >
                     <Typography className="typography" variant="h3">
                       Sign up
                     </Typography>

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 function SearchbyInput(props) {
   const [products, setProduct] = useState([]);
   const [productSearch, setProductSearch] = useState("");
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   useEffect(() => {
     if (products.length) {
@@ -92,11 +92,7 @@ function SearchbyInput(props) {
     console.log("all skin types", allskincounter);
   }
 
-  // console.log(products);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div>
@@ -123,7 +119,7 @@ function SearchbyInput(props) {
                 />
               </Grid>
 
-              <Grid item >
+              <Grid item>
                 <Button
                   size="medium"
                   variant="contained"
@@ -134,6 +130,10 @@ function SearchbyInput(props) {
                 >
                   Enter Barcode
                 </Button>
+              </Grid>
+
+              <Grid item>
+                <Link to="/profile"> GO TO PROFILE </Link>
               </Grid>
             </Grid>
           </Paper>
@@ -149,14 +149,13 @@ function SearchbyInput(props) {
                 description={product.description}
                 category={product.category}
                 username={props.username}
-                closeCard={handleClose}
+                // onDelete={handleDelete}
               />
             ))}
           </Grid>
         ) : (
           <h3></h3>
         )}
-        <Link to="/profile"> GO TO PROFILE </Link>
       </Grid>
     </div>
   );

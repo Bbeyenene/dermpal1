@@ -27,7 +27,7 @@ class BootstrapNavbar extends Component {
           });
           window.location.replace("/");
           this.setState({
-            redirectTo: "/profile",
+            redirectTo: "/login",
           });
         }
       })
@@ -45,36 +45,36 @@ class BootstrapNavbar extends Component {
       <div>
         {loggedIn ? (
           <Navbar collapseOnSelect expand="lg">
-            <Navbar.Brand as={Link} to="/profile">
+            <Navbar.Brand eventKey="1" as={Link} to="/profile">
               DermPal
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link as={Link} to="/search">
-                  Search
+                <Nav.Link eventKey="2" as={Link} to="/search">
+                  search
                 </Nav.Link>
-                <Nav.Link as={Link} to="/profile">
-                  Profile
+                <Nav.Link eventKey="3" as={Link} to="/profile">
+                  profile
                 </Nav.Link>
-                <Nav.Link as={Link} to="/" onClick={this.logout}>
-                  Logout
+                <Nav.Link eventKey="4" as={Link} to="/" onClick={this.logout}>
+                  logout
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
         ) : (
           <Navbar collapseOnSelect expand="lg">
-            <Navbar.Brand as={Link} to="/">
-              Dermpal
+            <Navbar.Brand eventKey="1" as={Link} to="/">
+              DermPal
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link as={Link} to="/login">
+                <Nav.Link eventKey="2" as={Link} to="/login">
                   login
                 </Nav.Link>
-                <Nav.Link as={Link} to="/signup">
+                <Nav.Link eventKey="3" as={Link} to="/signup">
                   sign up
                 </Nav.Link>
               </Nav>

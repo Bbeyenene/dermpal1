@@ -21,9 +21,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 function SearchbyScanner(props) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
   const [products, setProduct] = useState([]);
   // const [productSearch, setProductSearch] = useState("");
   var _scannerIsRunning = false;
@@ -102,9 +104,9 @@ function SearchbyScanner(props) {
     }
   }
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   return (
     <div>
@@ -135,6 +137,10 @@ function SearchbyScanner(props) {
                   Start/Stop Scanner
                 </Button>
               </Grid>
+
+              <Grid item>
+                <Link to="/searchbyinput"> OR TYPE IN BARCODE </Link>
+              </Grid>
             </Grid>
           </Paper>
         </Grid>
@@ -149,14 +155,13 @@ function SearchbyScanner(props) {
                 image={product.images[0]}
                 description={product.description}
                 username={props.username}
-                closeCard={handleClose}
+                // closeCard={handleClose}
               />
             ))}
           </Grid>
         ) : (
           <h3></h3>
         )}
-        <Link to="/searchbyinput"> OR TYPE IN BARCODE </Link>
       </Grid>
     </div>
   );
