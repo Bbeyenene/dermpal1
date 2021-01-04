@@ -52,13 +52,13 @@ class BootstrapNavbar extends Component {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
                 <Nav.Link eventKey="2" as={Link} to="/search">
-                  Search
+                  search
                 </Nav.Link>
                 <Nav.Link eventKey="3" as={Link} to="/profile">
-                  Profile
+                  profile
                 </Nav.Link>
                 <Nav.Link eventKey="4" as={Link} to="/" onClick={this.logout}>
-                  Logout
+                  logout
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

@@ -10,7 +10,13 @@ import SearchIcon from "@material-ui/icons/Search";
 import CropFreeIcon from "@material-ui/icons/CropFree";
 import InfoIcon from "@material-ui/icons/Info";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-
+import { Link } from "react-router-dom";
+import {
+  Image,
+  Video,
+  Transformation,
+  CloudinaryContext,
+} from "cloudinary-react";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -58,6 +64,12 @@ export default function Home() {
           </Box>
         </Grid>
 
+        {/* <Image cloud_name="dzrk9qfvp" publicId="heroimg_xczvpe" >
+  <Transformation quality="90" width="512" fetchFormat="auto" crop="scale" />
+</Image> */}
+
+
+
         {/* About */}
 
         <Grid item xs={12}>
@@ -75,17 +87,16 @@ export default function Home() {
                 </Typography>
               </Box>
               <Box mt={5} mb={6} textAlign="center">
-                <a href="/signup">
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    size="medium"
-                    startIcon={<SearchIcon />}
-                    to="/signup"
-                  >
-                    Let's get started
-                  </Button>
-                </a>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="medium"
+                  startIcon={<SearchIcon />}
+                  component={Link}
+                  to="/signup"
+                >
+                  get started
+                </Button>
               </Box>
             </Paper>
           </Box>
