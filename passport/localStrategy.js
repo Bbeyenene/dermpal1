@@ -1,3 +1,4 @@
+//Local Strategy to be used for verifying user credentials//
 const User = require('../database/models/user')
 const LocalStrategy = require('passport-local').Strategy
 

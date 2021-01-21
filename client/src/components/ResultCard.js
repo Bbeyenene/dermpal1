@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+// import { useHistory } from "react-router-dom";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -8,14 +8,16 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
-import ClearRoundedIcon from '@material-ui/icons/ClearRounded';
+
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import useStyles from "./ResultCard-styles";
+import API from "../utils/API";
+import SaveIcon from "@material-ui/icons/Save";
 
 export default function ResultCard(props) {
+  // const history = useHistory();
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -23,26 +25,30 @@ export default function ResultCard(props) {
     setExpanded(!expanded);
   };
 
-const onRemove = () => {
+ 
 
 
 
-}
+  const saveToDB = {
+    title: props.title,
+    category: props.category,
+    description: props.description,
+    image: props.image,
+    username: props.username,
+  };
 
+  console.log(saveToDB);
 
-
+  //API.retrievProduct()
+  const saveItem = () => {
+    API.postProduct(saveToDB)
+      .then((saved) => console.log(saved.data))
+      .catch((err) => console.log(`data not posted: ${err}`));
+  };
 
   return (
-    <Card className={classes.root} key={props.id} >
-      <CardHeader
-        // avatar={
-        //   <Avatar aria-label="recipe" className={classes.avatar}>
-        //     R
-        //   </Avatar>
-        // }
-        title={props.title}
-        subheader={props.subheader}
-      />
+    <Card className={classes.root} key={props.id} elevation={3}>
+      <CardHeader title={props.title} subheader={props.subheader} />
 
       <CardMedia
         className={classes.media}
@@ -57,12 +63,12 @@ const onRemove = () => {
       </CardContent>
 
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton aria-label="post" onClick={() => saveItem()}>
+          <SaveIcon />
         </IconButton>
 
-        <IconButton aria-label="delete" onRemove={() => onRemove(props.id)} >
-          <ClearRoundedIcon />
+        <IconButton aria-label="delete" >
+          <HighlightOffIcon />
         </IconButton>
 
         <IconButton
@@ -80,7 +86,7 @@ const onRemove = () => {
         <CardContent>
           <Typography paragraph>Write your review</Typography>
 
-          <Typography paragraph>Blah blah blah</Typography>
+          <Typography paragraph>Stores</Typography>
         </CardContent>
       </Collapse>
     </Card>

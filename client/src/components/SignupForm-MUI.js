@@ -1,13 +1,26 @@
 import React from "react";
 import axios from "axios";
-import { Button, TextField, Grid, Paper, Typography, Link } from "@material-ui/core";
-import "./Signup-MUI.css"
+import {
+  Button,
+  TextField,
+  Grid,
+  Paper,
+  Typography,
 
+} from "@material-ui/core";
+import "./Signup-MUI.css";
+
+import { Redirect } from "react-router-dom";
 
 class SignupForm extends React.Component {
   constructor() {
     super();
-    this.state = { username: "", password: "", confirmPassword: "", redirectTo: null };
+    this.state = {
+      username: "",
+      password: "",
+      confirmPassword: "",
+      redirectTo: null,
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -18,44 +31,50 @@ class SignupForm extends React.Component {
     });
   }
 
-
   handleSubmit(event) {
-    console.log('sign-up handleSubmit, username: ')
-    console.log(this.state.username)
-    event.preventDefault()
+    console.log("sign-up handleSubmit, username: ");
+    console.log(this.state.username);
+    event.preventDefault();
 
     //request to server to add a new username/password
-    axios.post('/api/user/', {
+    axios
+      .post("/api/user/", {
         username: this.state.username,
-        password: this.state.password
-    })
-        .then(response => {
-            console.log(response)
-            if (!response.data.errmsg) {
-                console.log('successful signup')
-                
-                this.setState({ //redirect to login page
-                  
-                  redirectTo: '/login'
-                })
-                // window.location.replace("/member")
-            } else {
-                console.log('username already taken')
-            }
-        }).catch(error => {
-            console.log('signup error: ')
-            console.log(error)
+        password: this.state.password,
+      })
+      .then((response) => {
+        console.log(response);
+        if (!response.data.errmsg) {
+          console.log("successful signup");
 
-        })
-}
+          this.setState({
+            //redirect to search page
 
+            redirectTo: "/search",
+          });
+         
+        } else {
+          console.log("username already taken");
+          this.setState({
+            //redirect to login page
+            redirectTo: "/login",
+          });
+        }
+      })
+      .catch((error) => {
+        console.log("signup error: ");
+        console.log(error);
+      });
+  }
 
   render() {
-  
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    } else {
       return (
         <div>
           <Grid container spacing={0} justify="center" direction="colomn">
-            <Grid item>
+            <Grid item   lg={3}>
               <Grid
                 container
                 direction="column"
@@ -63,26 +82,22 @@ class SignupForm extends React.Component {
                 spacing={2}
                 className="login-form"
               >
-                <Paper
-                  variant="elevation"
-                  elevation={2}
-                  className="login-background"
-                >
-                  <Grid item>
-                    <Typography component="h1" variant="h5">
+                <Paper elevation={5} className="login-background">
+                  <Grid item >
+                    <Typography className="typography" variant="h3">
                       Sign up
                     </Typography>
                   </Grid>
                   <Grid item>
-                    <form >
+                    <form>
                       <Grid container direction="column" spacing={2}>
-                        <Grid item>
+                        <Grid  item>
                           <TextField
                             type="email"
                             placeholder="Email"
                             fullWidth
                             name="username"
-                            variant="outlined"
+                            // variant="outlined"
                             value={this.state.username}
                             onChange={this.handleChange}
                             required
@@ -95,7 +110,7 @@ class SignupForm extends React.Component {
                             placeholder="Password"
                             fullWidth
                             name="password"
-                            variant="outlined"
+                            // variant="outlined"
                             value={this.state.password}
                             onChange={this.handleChange}
                             required
@@ -115,18 +130,14 @@ class SignupForm extends React.Component {
                       </Grid>
                     </form>
                   </Grid>
-                  <Grid item>
-                    <Link href="#" variant="body2">
-                      Forgot Password?
-                    </Link>
-                  </Grid>
+                 
                 </Paper>
               </Grid>
             </Grid>
           </Grid>
         </div>
       );
-    
+    }
   }
 }
 export default SignupForm;

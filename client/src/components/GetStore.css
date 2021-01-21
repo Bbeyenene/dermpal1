@@ -1,0 +1,17 @@
+table {
+    width:100%;
+    margin-top:5px;
+    border: 3px solid black;
+}
+ th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+.price {
+    color: red;
+}
