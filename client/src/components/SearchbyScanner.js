@@ -21,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 function SearchbyScanner(props) {
   const classes = useStyles();
   // const [open, setOpen] = React.useState(false);
@@ -160,7 +158,7 @@ function SearchbyScanner(props) {
             ))}
           </Grid>
         ) : (
-          <h3></h3>
+          <div></div>
         )}
       </Grid>
     </div>

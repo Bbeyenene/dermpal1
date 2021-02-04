@@ -92,8 +92,6 @@ function SearchbyInput(props) {
     console.log("all skin types", allskincounter);
   }
 
-
-
   return (
     <div>
       <Grid
@@ -154,7 +152,7 @@ function SearchbyInput(props) {
             ))}
           </Grid>
         ) : (
-          <h3></h3>
+          <></>
         )}
       </Grid>
     </div>

@@ -5,7 +5,6 @@ import axios from "axios";
 import { Nav, Navbar } from "react-bootstrap";
 import "./bootstrapnav.css";
 
-
 class BootstrapNavbar extends Component {
   constructor() {
     super();
@@ -45,19 +44,19 @@ class BootstrapNavbar extends Component {
       <div>
         {loggedIn ? (
           <Navbar collapseOnSelect expand="lg">
-            <Navbar.Brand eventKey="1" as={Link} to="/profile">
+            <Navbar.Brand eventkey="1" as={Link} to="/profile">
               DermPal
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link eventKey="2" as={Link} to="/search">
+                <Nav.Link eventkey="2" as={Link} to="/search">
                   search
                 </Nav.Link>
-                <Nav.Link eventKey="3" as={Link} to="/profile">
+                <Nav.Link eventkey="3" as={Link} to="/profile">
                   profile
                 </Nav.Link>
-                <Nav.Link eventKey="4" as={Link} to="/" onClick={this.logout}>
+                <Nav.Link eventkey="4" as={Link} to="/" onClick={this.logout}>
                   logout
                 </Nav.Link>
               </Nav>
@@ -65,16 +64,16 @@ class BootstrapNavbar extends Component {
           </Navbar>
         ) : (
           <Navbar collapseOnSelect expand="lg">
-            <Navbar.Brand eventKey="1" as={Link} to="/">
+            <Navbar.Brand eventkey="1" as={Link} to="/">
               DermPal
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <Nav.Link eventKey="2" as={Link} to="/login">
+                <Nav.Link eventkey="2" as={Link} to="/login">
                   login
                 </Nav.Link>
-                <Nav.Link eventKey="3" as={Link} to="/signup">
+                <Nav.Link eventkey="3" as={Link} to="/signup">
                   sign up
                 </Nav.Link>
               </Nav>

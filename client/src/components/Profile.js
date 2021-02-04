@@ -17,7 +17,7 @@ export default class Profile extends React.Component {
       .catch((err) => console.error(err));
   }
 
-  // removes products 
+  // removes products
   // handleRemove(product) {
   //   API.deleteProduct(product)
   //     .then((delProduct) =>
@@ -37,10 +37,14 @@ export default class Profile extends React.Component {
           this.state.products.map((product) => (
             <div key={product._id} className="card mb-3">
               <div className="row g-0">
-                <div className="col-md-4">
-                  <img src={product.image} alt={product.title} />
+                <div className="col-md-4" infoRed>
+                  <img
+                    className="myImg"
+                    src={product.image}
+                    alt={product.title}
+                  />
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-8 infoDiv">
                   <div className="card-body">
                     <h5 className="card-title">{product.title}</h5>
                     <p className="card-text">

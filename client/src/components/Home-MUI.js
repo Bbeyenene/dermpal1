@@ -11,12 +11,12 @@ import CropFreeIcon from "@material-ui/icons/CropFree";
 import InfoIcon from "@material-ui/icons/Info";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { Link } from "react-router-dom";
-import {
-  Image,
-  Video,
-  Transformation,
-  CloudinaryContext,
-} from "cloudinary-react";
+// import {
+//   Image,
+//   Video,
+//   Transformation,
+//   CloudinaryContext,
+// } from "cloudinary-react";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -67,8 +67,6 @@ export default function Home() {
         {/* <Image cloud_name="dzrk9qfvp" publicId="heroimg_xczvpe" >
   <Transformation quality="90" width="512" fetchFormat="auto" crop="scale" />
 </Image> */}
-
-
 
         {/* About */}
 
