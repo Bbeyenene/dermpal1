@@ -26,12 +26,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // DATABASE CONNECTION
-//const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI;
 //console.log(`uri ==> ${uri}`);
 
 mongoose
   .connect(
-    "mongodb+srv://monoxica2004:Medhiney06@cluster0.8dqms.mongodb.net/dermpal?retryWrites=true&w=majority",
+    uri,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
