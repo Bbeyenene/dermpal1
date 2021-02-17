@@ -1,13 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import {
-  Button,
-  TextField,
-  Grid,
-  Paper,
-  Typography,
- 
-} from "@material-ui/core";
+import { Button, TextField, Grid, Paper, Typography } from "@material-ui/core";
 import axios from "axios";
 import "./Signup-MUI.css";
 
@@ -64,7 +57,7 @@ class Loginmock extends React.Component {
       return (
         <div>
           <Grid container spacing={0} justify="center" direction="row">
-            <Grid item  lg={3}>
+            <Grid item lg={3}>
               <Grid
                 container
                 direction="column"

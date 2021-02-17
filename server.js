@@ -30,6 +30,7 @@ const uri = process.env.MONGODB_URI;
 //console.log(`uri ==> ${uri}`);
 
 mongoose
+
   .connect(
     uri,
     {
@@ -39,11 +40,13 @@ mongoose
       useFindAndModify: false,
     }
   )
+
   .then(() => {
     /** ready to use. The `mongoose.connect()` promise resolves to undefined. */
     console.log("Connected to Mongo");
   })
   .catch((err) => console.log({ err }));
+
 // Sessions
 app.use(
   session({

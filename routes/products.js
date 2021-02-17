@@ -1,5 +1,5 @@
 const router = require("express").Router();
-let Product = require("../database/models/product.model");
+let Product = require("../db-model/product");
 router.post("/api/product/", (req, res) => {
   console.log(req.body);
   Product.create({
@@ -16,7 +16,7 @@ router.post("/api/product/", (req, res) => {
       res.json(err);
     });
 });
-router.get("/api/product/all", async (req, res) => {
+router.get("/api/product/", async (req, res) => {
   try {
     const getProduct = await Product.find({});
     console.log("------------------whats up");
