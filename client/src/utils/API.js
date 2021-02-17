@@ -21,5 +21,8 @@ var API = {
   retrieveProduct: () => {
     return axios.get("/api/product/all");
   },
+  memberInfo: () => {
+    return axios.get("/api/user/member").then((res) => console.log(res));
+  },
 };
 export default API;
