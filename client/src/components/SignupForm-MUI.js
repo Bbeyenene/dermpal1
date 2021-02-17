@@ -1,13 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {
-  Button,
-  TextField,
-  Grid,
-  Paper,
-  Typography,
-
-} from "@material-ui/core";
+import { Button, TextField, Grid, Paper, Typography } from "@material-ui/core";
 import "./Signup-MUI.css";
 
 import { Redirect } from "react-router-dom";
@@ -24,7 +17,6 @@ class SignupForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
@@ -52,7 +44,6 @@ class SignupForm extends React.Component {
 
             redirectTo: "/search",
           });
-         
         } else {
           console.log("username already taken");
           this.setState({
@@ -74,7 +65,7 @@ class SignupForm extends React.Component {
       return (
         <div>
           <Grid container spacing={0} justify="center" direction="colomn">
-            <Grid item   lg={3}>
+            <Grid item lg={3}>
               <Grid
                 container
                 direction="column"
@@ -83,7 +74,7 @@ class SignupForm extends React.Component {
                 className="login-form"
               >
                 <Paper elevation={5} className="login-background">
-                  <Grid item >
+                  <Grid item>
                     <Typography className="typography" variant="h3">
                       Sign up
                     </Typography>
@@ -91,7 +82,7 @@ class SignupForm extends React.Component {
                   <Grid item>
                     <form>
                       <Grid container direction="column" spacing={2}>
-                        <Grid  item>
+                        <Grid item>
                           <TextField
                             type="email"
                             placeholder="Email"
@@ -130,7 +121,6 @@ class SignupForm extends React.Component {
                       </Grid>
                     </form>
                   </Grid>
-                 
                 </Paper>
               </Grid>
             </Grid>

@@ -26,24 +26,22 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // DATABASE CONNECTION
-//const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI;
 //console.log(`uri ==> ${uri}`);
 
 mongoose
-  .connect(
-    "mongodb+srv://monoxica2004:Medhiney06@cluster0.8dqms.mongodb.net/dermpal?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    }
-  )
+  .connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
   .then(() => {
     /** ready to use. The `mongoose.connect()` promise resolves to undefined. */
     console.log("Connected to Mongo");
   })
   .catch((err) => console.log({ err }));
+
 // Sessions
 app.use(
   session({
