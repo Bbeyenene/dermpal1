@@ -30,12 +30,17 @@ const uri = process.env.MONGODB_URI;
 //console.log(`uri ==> ${uri}`);
 
 mongoose
-  .connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
+
+  .connect(
+    uri,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    }
+  )
+
   .then(() => {
     /** ready to use. The `mongoose.connect()` promise resolves to undefined. */
     console.log("Connected to Mongo");
